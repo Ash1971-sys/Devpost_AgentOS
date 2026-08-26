@@ -90,6 +90,9 @@ export default function ContactPage() {
                   <a href="https://github.com/umangvijay" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--text-secondary)", textDecoration: "none" }} className="hover:text-primary">
                     <span style={{ fontSize: 20 }}>💻</span> GitHub Repository
                   </a>
+                  <span style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--text-secondary)", marginTop: 4 }}>
+                    <span style={{ fontSize: 20 }}>🌍</span> Remote
+                  </span>
                 </div>
               </div>
 
@@ -106,7 +109,7 @@ export default function ContactPage() {
                     <span style={{ fontSize: 20 }}>💻</span> GitHub Repository
                   </a>
                   <span style={{ display: "flex", alignItems: "center", gap: 8, color: "var(--text-secondary)", marginTop: 4 }}>
-                    <span style={{ fontSize: 20 }}>🏢</span> AgentOS Headquarters
+                    <span style={{ fontSize: 20 }}>🌍</span> Remote
                   </span>
                 </div>
               </div>
