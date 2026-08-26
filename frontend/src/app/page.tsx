@@ -147,8 +147,8 @@ export default function LandingPage() {
             <path d="M 210 150 C 310 150, 310 250, 460 250" stroke="var(--accent-purple)" strokeWidth="2" fill="none" className="animate-dash" strokeDasharray="10 20" />
 
             {/* Curved Path 3 */}
-            <path d="M 680 100 C 730 100, 730 150, 750 150" stroke="var(--accent)" strokeWidth="3" fill="none" strokeOpacity="0.3" />
-            <path d="M 680 100 C 730 100, 730 150, 750 150" stroke="var(--accent)" strokeWidth="2" fill="none" className="animate-dash" strokeDasharray="10 20" />
+            <path d="M 680 100 C 715 100, 715 150, 750 150" stroke="var(--accent)" strokeWidth="3" fill="none" strokeOpacity="0.3" />
+            <path d="M 680 100 C 715 100, 715 150, 750 150" stroke="var(--accent)" strokeWidth="2" fill="none" className="animate-dash" strokeDasharray="10 20" />
           </svg>
 
           {/* Nodes */}
