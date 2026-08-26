@@ -201,7 +201,6 @@ body {
   background-color: var(--bg-primary);
   background-image: 
     radial-gradient(circle at 15% 50%, rgba(255, 110, 108, 0.1), transparent 30%),
-    radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.1), transparent 30%),
     radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.1), transparent 30%);
 }
 

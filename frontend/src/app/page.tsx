@@ -101,7 +101,7 @@ export default function LandingPage() {
         <div style={{ zIndex: 10 }}>
           <h1 className="animate-fade-in-up" style={{
             fontSize: "clamp(48px, 8vw, 84px)", fontWeight: 900, lineHeight: 1.05,
-            letterSpacing: "-0.04em", marginBottom: 24, maxWidth: 1000
+            letterSpacing: "-0.04em", marginBottom: 24, marginTop: 60, maxWidth: 1000
           }}>
             The autonomous workspace that <br/>
             <span className="gradient-text">builds its own tools.</span>
@@ -114,7 +114,6 @@ export default function LandingPage() {
           </p>
           <div className="animate-fade-in-up" style={{ display: "flex", gap: 16, justifyContent: "center", animationDelay: "0.2s" }}>
             <Link href="/get-started" className="btn btn-primary btn-lg">Start Building Free</Link>
-            <a href="#demo" className="btn btn-secondary btn-lg">Watch how it works</a>
           </div>
         </div>
 
