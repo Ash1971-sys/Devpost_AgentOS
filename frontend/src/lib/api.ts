@@ -42,6 +42,17 @@ async function apiFetch<T>(
   path: string,
   options: RequestInit = {}
 ): Promise<T> {
+  // Guest mode interceptor to prevent 401 logouts during trial
+  if (getToken() === "mock_guest_token") {
+    if (path.includes("/notifications/unread")) return { unread_count: 0 } as T;
+    if (path.includes("/notifications")) return { notifications: [], unread_count: 0 } as T;
+    if (path.includes("/workflows")) return { workflows: [], count: 0 } as T;
+    if (path.includes("/integrations")) return { integrations: [], count: 0 } as T;
+    if (path.includes("/schedules")) return { schedules: [], count: 0 } as T;
+    if (path.includes("/settings")) return { settings: { theme: "system", autonomy_level: 3, default_model: "gemini-1.5-pro", notifications_enabled: true, daily_token_limit: 100000, auto_approve_low_risk: true } } as T;
+    return {} as T;
+  }
+
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
     ...authHeaders(),
