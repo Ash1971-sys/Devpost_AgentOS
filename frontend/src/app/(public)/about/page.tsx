@@ -70,12 +70,12 @@ export default function AboutPage() {
           <h2 style={{ fontSize: 36, fontWeight: 800, marginBottom: 40, textAlign: "center" }}>Meet the Team</h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 32 }}>
             <div style={{ textAlign: "center" }}>
-              <div style={{ width: 120, height: 120, borderRadius: "50%", background: "var(--border-primary)", margin: "0 auto 20px" }} />
+              <img src="/images/umang-vijay.png" alt="Umang Vijay" style={{ width: 120, height: 120, borderRadius: "50%", objectFit: "cover", objectPosition: "top", margin: "0 auto 20px", display: "block" }} />
               <h3 style={{ fontSize: 20, fontWeight: 700 }}>Umang Vijay</h3>
               <p style={{ color: "var(--accent)" }}>Co-Founder & CTO</p>
             </div>
             <div style={{ textAlign: "center" }}>
-              <div style={{ width: 120, height: 120, borderRadius: "50%", background: "var(--border-primary)", margin: "0 auto 20px" }} />
+              <img src="/images/ashmit-rana.png" alt="Ashmit Rana" style={{ width: 120, height: 120, borderRadius: "50%", objectFit: "cover", objectPosition: "top", margin: "0 auto 20px", display: "block" }} />
               <h3 style={{ fontSize: 20, fontWeight: 700 }}>Ashmit Rana</h3>
               <p style={{ color: "var(--accent)" }}>Co-Founder & CEO</p>
             </div>

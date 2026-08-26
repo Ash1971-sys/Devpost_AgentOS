@@ -153,16 +153,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [persistAuth]);
 
   const loginAsGuest = useCallback(async () => {
-    const res = await fetch(`${API_BASE}/auth/guest`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    });
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}));
-      throw new Error(data.detail || "Guest login failed");
-    }
-    const data = await res.json();
-    persistAuth(data.user, data.access_token, data.refresh_token);
+    // Mock guest authentication for free trial usage
+    const guestUser: User = {
+      id: "guest_" + Math.random().toString(36).substring(2, 10),
+      email: "guest@trial.agentos.local",
+      name: "Guest User",
+      auth_provider: "guest",
+      role: "guest",
+      is_active: true,
+      created_at: new Date().toISOString()
+    };
+    persistAuth(guestUser, "mock_guest_token", "mock_guest_refresh");
   }, [persistAuth]);
 
   const logout = useCallback(async () => {

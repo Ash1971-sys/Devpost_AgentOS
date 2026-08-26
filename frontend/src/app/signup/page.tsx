@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useGoogleLogin } from "@react-oauth/google";
 
 export default function SignupPage() {
-  const { signup, loginWithGoogle, isAuthenticated } = useAuth();
+  const { signup, loginWithGoogle, isAuthenticated, loginAsGuest } = useAuth();
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -145,7 +145,7 @@ export default function SignupPage() {
           {/* Google sign-in */}
           <button
             className="btn btn-secondary btn-lg"
-            style={{ width: "100%" }}
+            style={{ width: "100%", marginBottom: 12 }}
             onClick={() => googleLogin()}
             disabled={loading}
           >
@@ -156,6 +156,25 @@ export default function SignupPage() {
               <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
             </svg>
             Sign up with Google
+          </button>
+
+          {/* Guest Trial */}
+          <button
+            className="btn btn-ghost btn-lg"
+            style={{ width: "100%", border: "1px solid var(--border-primary)" }}
+            onClick={async () => {
+              try {
+                setLoading(true);
+                await loginAsGuest();
+                router.push("/dashboard");
+              } catch (err: unknown) {
+                setError(err instanceof Error ? err.message : "Guest login failed");
+                setLoading(false);
+              }
+            }}
+            disabled={loading}
+          >
+            👤 Continue as Guest (Free Trial)
           </button>
         </div>
 
