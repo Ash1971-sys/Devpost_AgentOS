@@ -45,7 +45,7 @@ export default function ResumePlatformPage() {
           Upload your master resume and a Job Description. Our vector-based engine will parse, score against ATS systems, and tailor a perfectly formatted PDF without fabricating experience.
         </p>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 32 }}>
           
           {/* Upload Section */}
           <div className="glass-card" style={{ padding: 32 }}>

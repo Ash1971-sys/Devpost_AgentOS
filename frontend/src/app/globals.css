@@ -473,3 +473,49 @@ body {
 .marquee-content:hover {
   animation-play-state: paused;
 }
+
+/* ── Utilities ─────────────────────────────────────────────────── */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── Mobile Overrides ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    width: 260px !important;
+    z-index: 999;
+  }
+  .sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  }
+  .sidebar-collapsed {
+    margin-left: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  .navbar-public {
+    padding: 16px !important;
+    flex-wrap: wrap !important;
+  }
+  .navbar-public-links {
+    width: 100%;
+    margin-top: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    gap: 16px !important;
+    justify-content: flex-start !important;
+  }
+  .navbar-public-links nav {
+    gap: 16px !important;
+  }
+}

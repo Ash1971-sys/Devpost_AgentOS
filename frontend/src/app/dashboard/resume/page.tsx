@@ -123,7 +123,7 @@ export default function ResumePage() {
         </div>
 
         {/* Right Column: Results */}
-        <div style={{ flex: "1 1 400px", display: "flex", flexDirection: "column" }}>
+        <div style={{ minWidth: 0, display: "flex", flexDirection: "column" }}>
           {results ? (
             <div className="glass-card animate-slide-in" style={{ padding: 24, flex: 1 }}>
               <h2 style={{ fontSize: 18, fontWeight: 600, marginBottom: 24 }}>Analysis Results</h2>

@@ -4,7 +4,7 @@ export default function FeaturesPage() {
   return (
     <div className="mesh-gradient" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       {/* Navbar */}
-      <header style={{
+      <header className="navbar-public" style={{
         padding: "20px 40px", display: "flex", justifyContent: "space-between", alignItems: "center",
         borderBottom: "1px solid var(--border-primary)", backdropFilter: "blur(12px)",
         position: "sticky", top: 0, zIndex: 100
@@ -24,21 +24,21 @@ export default function FeaturesPage() {
             </span>
           </Link>
         </div>
-        <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
+        <div className="navbar-public-links hide-scrollbar" style={{ display: "flex", gap: 32, alignItems: "center" }}>
           <nav style={{ display: "flex", gap: 24, fontSize: 14, fontWeight: 500, color: "var(--text-secondary)" }}>
-            <Link href="/about" className="hover:text-primary transition-colors">About Us</Link>
-            <Link href="/features" className="hover:text-primary transition-colors" style={{ color: "var(--text-primary)" }}>Features</Link>
-            <Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
+            <Link href="/about" className="hover:text-primary transition-colors whitespace-nowrap">About Us</Link>
+            <Link href="/features" className="hover:text-primary transition-colors whitespace-nowrap" style={{ color: "var(--text-primary)" }}>Features</Link>
+            <Link href="/contact" className="hover:text-primary transition-colors whitespace-nowrap">Contact Us</Link>
           </nav>
           <div style={{ display: "flex", gap: 16 }}>
-            <Link href="/login" className="btn btn-ghost">Sign In</Link>
-            <Link href="/get-started" className="btn btn-primary">Get Started</Link>
+            <Link href="/login" className="btn btn-ghost whitespace-nowrap">Sign In</Link>
+            <Link href="/get-started" className="btn btn-primary whitespace-nowrap">Get Started</Link>
           </div>
         </div>
       </header>
 
       {/* Content */}
-      <main style={{ flex: 1, padding: "80px 20px", maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
+      <main className="px-4 py-12 md:py-20" style={{ flex: 1, maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
         <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: 800, marginBottom: 24 }} className="gradient-text">
           Features
         </h1>

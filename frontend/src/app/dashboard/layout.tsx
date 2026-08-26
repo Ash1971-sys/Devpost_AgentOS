@@ -76,6 +76,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
   
   // Notification Panel State
@@ -159,7 +160,15 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <div className="mesh-gradient" style={{ display: "flex", minHeight: "100vh" }}>
       {/* ── Sidebar ────────────────────────────────────────────── */}
-      <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
+      {/* Mobile overlay backdrop */}
+      {mobileOpen && (
+        <div 
+          className="md:hidden" 
+          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 900 }}
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+      <aside className={`sidebar ${collapsed ? "collapsed" : ""} ${mobileOpen ? "mobile-open" : ""}`}>
         {/* Logo */}
         <Link href="/" style={{ textDecoration: "none" }}>
           <div style={{
@@ -190,6 +199,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
               href={item.href}
               className={`sidebar-nav-item ${pathname === item.href ? "active" : ""}`}
               title={collapsed ? item.label : undefined}
+              onClick={() => setMobileOpen(false)}
             >
               {item.icon}
               {!collapsed && <span>{item.label}</span>}
@@ -218,6 +228,11 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         {/* Topbar */}
         <header className="topbar">
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <button className="md:hidden btn btn-ghost btn-sm" style={{ padding: 4 }} onClick={() => setMobileOpen(true)}>
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
             <h1 style={{ fontSize: 16, fontWeight: 600, color: "var(--text-primary)" }}>
               {NAV_ITEMS.find((i) => pathname.startsWith(i.href))?.label || "AgentOS"}
             </h1>

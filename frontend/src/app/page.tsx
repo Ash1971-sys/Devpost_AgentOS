@@ -58,7 +58,7 @@ export default function LandingPage() {
         flex: 1 
       }}>
         {/* Navbar */}
-        <header style={{
+        <header className="navbar-public" style={{
         padding: "20px 40px", display: "flex", justifyContent: "space-between", alignItems: "center",
         borderBottom: "1px solid var(--border-primary)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)",
         position: "sticky", top: 0, zIndex: 100,
@@ -79,35 +79,26 @@ export default function LandingPage() {
             AgentOS
           </span>
         </div>
-        <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
+        <div className="navbar-public-links hide-scrollbar" style={{ display: "flex", gap: 32, alignItems: "center" }}>
           <nav style={{ display: "flex", gap: 32, fontSize: 14, fontWeight: 600, color: "var(--text-secondary)" }}>
-            <Link href="/about" className="hover:text-primary transition-colors" style={{ color: "var(--text-primary)" }}>About Us</Link>
-            <Link href="/features" className="hover:text-primary transition-colors">Features</Link>
-            <Link href="/integrations" className="hover:text-primary transition-colors">Marketplace</Link>
-            <Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
+            <Link href="/about" className="hover:text-primary transition-colors whitespace-nowrap" style={{ color: "var(--text-primary)" }}>About Us</Link>
+            <Link href="/features" className="hover:text-primary transition-colors whitespace-nowrap">Features</Link>
+            <Link href="/integrations" className="hover:text-primary transition-colors whitespace-nowrap">Marketplace</Link>
+            <Link href="/contact" className="hover:text-primary transition-colors whitespace-nowrap">Contact Us</Link>
           </nav>
           <div style={{ display: "flex", gap: 16 }}>
-            <Link href="/login" className="btn btn-ghost">Sign In</Link>
-            <Link href="/get-started" className="btn btn-primary">Get Started</Link>
+            <Link href="/login" className="btn btn-ghost whitespace-nowrap">Sign In</Link>
+            <Link href="/get-started" className="btn btn-primary whitespace-nowrap">Get Started</Link>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <main style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "100px 20px", textAlign: "center", position: "relative" }}>
+      <main className="px-4 py-12 md:py-24" style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", position: "relative" }}>
         
-        {/* Floating Background SVG paths */}
-        <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, overflow: "hidden", pointerEvents: "none", opacity: 0.5 }}>
-          <svg width="100%" height="100%" style={{ position: "absolute" }}>
-            <path d="M -100 200 C 300 200, 400 600, 1000 400" stroke="var(--border-hover)" strokeWidth="2" fill="none" className="animate-dash" strokeDasharray="10 15" />
-            <path d="M -100 600 C 500 500, 600 100, 1200 300" stroke="var(--border-hover)" strokeWidth="1" fill="none" className="animate-dash" strokeDasharray="5 15" style={{ animationDuration: "30s" }} />
-          </svg>
-        </div>
+
 
         <div style={{ zIndex: 10 }}>
-          <div className="badge animate-fade-in-up" style={{ marginBottom: 32, padding: "6px 16px", background: "rgba(236, 72, 153, 0.1)", color: "var(--accent-pink)", border: "1px solid rgba(236, 72, 153, 0.3)", borderRadius: 100 }}>
-            Production Ready v2.0
-          </div>
           <h1 className="animate-fade-in-up" style={{
             fontSize: "clamp(48px, 8vw, 84px)", fontWeight: 900, lineHeight: 1.05,
             letterSpacing: "-0.04em", marginBottom: 24, maxWidth: 1000
@@ -128,11 +119,12 @@ export default function LandingPage() {
         </div>
 
         {/* Animated Node Demo */}
-        <div id="demo" className="animate-fade-in-up glass-card" style={{
+        <div id="demo" className="animate-fade-in-up glass-card hide-scrollbar" style={{
           marginTop: 80, width: "100%", maxWidth: 1000, height: 450,
           background: "var(--bg-secondary)", animationDelay: "0.3s", position: "relative",
-          zIndex: 10
+          zIndex: 10, overflowX: "auto"
         }}>
+          <div style={{ minWidth: 1000, height: "100%", position: "relative" }}>
           {/* Header */}
           <div style={{
             height: 48, borderBottom: "1px solid var(--border-primary)",
@@ -148,23 +140,23 @@ export default function LandingPage() {
           {/* SVG Connections */}
           <svg style={{ position: "absolute", top: 48, left: 0, width: "100%", height: "calc(100% - 48px)", pointerEvents: "none" }}>
             {/* Curved Path 1 */}
-            <path d="M 230 150 C 350 150, 400 100, 500 100" stroke="var(--accent-pink)" strokeWidth="3" fill="none" strokeOpacity="0.3" />
-            <path d="M 230 150 C 350 150, 400 100, 500 100" stroke="var(--accent-pink)" strokeWidth="2" fill="none" className="animate-dash" strokeDasharray="10 20" />
+            <path d="M 210 150 C 310 150, 360 100, 460 100" stroke="var(--accent-pink)" strokeWidth="3" fill="none" strokeOpacity="0.3" />
+            <path d="M 210 150 C 310 150, 360 100, 460 100" stroke="var(--accent-pink)" strokeWidth="2" fill="none" className="animate-dash" strokeDasharray="10 20" />
             
             {/* Curved Path 2 */}
-            <path d="M 230 150 C 350 150, 350 250, 500 250" stroke="var(--accent-purple)" strokeWidth="3" fill="none" strokeOpacity="0.3" />
-            <path d="M 230 150 C 350 150, 350 250, 500 250" stroke="var(--accent-purple)" strokeWidth="2" fill="none" className="animate-dash" strokeDasharray="10 20" />
+            <path d="M 210 150 C 310 150, 310 250, 460 250" stroke="var(--accent-purple)" strokeWidth="3" fill="none" strokeOpacity="0.3" />
+            <path d="M 210 150 C 310 150, 310 250, 460 250" stroke="var(--accent-purple)" strokeWidth="2" fill="none" className="animate-dash" strokeDasharray="10 20" />
 
             {/* Curved Path 3 */}
-            <path d="M 720 100 C 800 100, 800 150, 850 150" stroke="var(--accent)" strokeWidth="3" fill="none" strokeOpacity="0.3" />
-            <path d="M 720 100 C 800 100, 800 150, 850 150" stroke="var(--accent)" strokeWidth="2" fill="none" className="animate-dash" strokeDasharray="10 20" />
+            <path d="M 680 100 C 730 100, 730 150, 750 150" stroke="var(--accent)" strokeWidth="3" fill="none" strokeOpacity="0.3" />
+            <path d="M 680 100 C 730 100, 730 150, 750 150" stroke="var(--accent)" strokeWidth="2" fill="none" className="animate-dash" strokeDasharray="10 20" />
           </svg>
 
           {/* Nodes */}
           <div style={{ position: "absolute", top: 48, left: 0, width: "100%", height: "calc(100% - 48px)" }}>
             
             {/* Trigger Node */}
-            <div className="node-card animate-float" style={{ position: "absolute", left: 60, top: 120, width: 170 }}>
+            <div className="node-card animate-float" style={{ position: "absolute", left: 40, top: 120, width: 170 }}>
               <div style={{ fontSize: 24 }}>⚡</div>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 700 }}>User Intent</div>
@@ -174,7 +166,7 @@ export default function LandingPage() {
             </div>
 
             {/* MCP Factory Node */}
-            <div className="node-card animate-float" style={{ position: "absolute", left: 500, top: 70, width: 220, animationDelay: "1s" }}>
+            <div className="node-card animate-float" style={{ position: "absolute", left: 460, top: 70, width: 220, animationDelay: "1s" }}>
               <div className="node-port left"></div>
               <div style={{ fontSize: 24 }}>🛠️</div>
               <div>
@@ -185,7 +177,7 @@ export default function LandingPage() {
             </div>
 
             {/* Web Search Node */}
-            <div className="node-card animate-float" style={{ position: "absolute", left: 500, top: 220, width: 220, animationDelay: "2s", opacity: 0.7 }}>
+            <div className="node-card animate-float" style={{ position: "absolute", left: 460, top: 220, width: 220, animationDelay: "2s", opacity: 0.7 }}>
               <div className="node-port left"></div>
               <div style={{ fontSize: 24 }}>🌐</div>
               <div>
@@ -195,7 +187,7 @@ export default function LandingPage() {
             </div>
 
             {/* Execution Node */}
-            <div className="node-card animate-float" style={{ position: "absolute", left: 850, top: 120, width: 170, animationDelay: "1.5s" }}>
+            <div className="node-card animate-float" style={{ position: "absolute", left: 750, top: 120, width: 200, animationDelay: "1.5s" }}>
               <div className="node-port left"></div>
               <div style={{ fontSize: 24 }}>✅</div>
               <div>
@@ -204,6 +196,7 @@ export default function LandingPage() {
               </div>
             </div>
 
+          </div>
           </div>
         </div>
       </main>

@@ -4,7 +4,7 @@ export default function AboutPage() {
   return (
     <div className="mesh-gradient" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       {/* Navbar */}
-      <header style={{
+      <header className="navbar-public" style={{
         padding: "20px 40px", display: "flex", justifyContent: "space-between", alignItems: "center",
         borderBottom: "1px solid var(--border-primary)", backdropFilter: "blur(12px)"
       }}>
@@ -23,21 +23,20 @@ export default function AboutPage() {
             </span>
           </Link>
         </div>
-        <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
+        <div className="navbar-public-links hide-scrollbar" style={{ display: "flex", gap: 32, alignItems: "center" }}>
           <nav style={{ display: "flex", gap: 24, fontSize: 14, fontWeight: 500, color: "var(--text-secondary)" }}>
-            <Link href="/about" className="hover:text-primary transition-colors" style={{ color: "var(--text-primary)" }}>About Us</Link>
-            <Link href="/features" className="hover:text-primary transition-colors">Features</Link>
-            <Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
+            <Link href="/about" className="hover:text-primary transition-colors whitespace-nowrap" style={{ color: "var(--text-primary)" }}>About Us</Link>
+            <Link href="/features" className="hover:text-primary transition-colors whitespace-nowrap">Features</Link>
+            <Link href="/contact" className="hover:text-primary transition-colors whitespace-nowrap">Contact Us</Link>
           </nav>
           <div style={{ display: "flex", gap: 16 }}>
-            <Link href="/login" className="btn btn-ghost">Sign In</Link>
-            <Link href="/get-started" className="btn btn-primary">Get Started</Link>
+            <Link href="/login" className="btn btn-ghost whitespace-nowrap">Sign In</Link>
+            <Link href="/get-started" className="btn btn-primary whitespace-nowrap">Get Started</Link>
           </div>
         </div>
       </header>
 
-      {/* Content */}
-      <main style={{ flex: 1, padding: "80px 20px", maxWidth: 800, margin: "0 auto", textAlign: "left" }}>
+      <main className="px-4 py-12 md:py-20" style={{ flex: 1, maxWidth: 800, margin: "0 auto", textAlign: "left" }}>
         <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: 800, marginBottom: 24 }} className="gradient-text">
           About Us
         </h1>
@@ -46,7 +45,7 @@ export default function AboutPage() {
           AgentOS was created with a singular vision: an AI assistant shouldn't be limited by the tools its developers hardcoded for it.
         </p>
         
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, marginBottom: 80 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 32, marginBottom: 80 }}>
           <div className="glass-card" style={{ padding: 40, borderLeft: "4px solid var(--accent-pink)" }}>
             <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>Our Mission</h2>
             <p style={{ color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: 16 }}>
