@@ -1,6 +1,71 @@
 "use client";
 
 import Link from "next/link";
+import React, { useRef, useState } from "react";
+
+function TiltCard({ children, className, style }: any) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [tilt, setTilt] = useState("");
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    // Subtler 5-degree tilt for a smoother, less aggressive feel
+    const rotateX = ((y - centerY) / centerY) * -5;
+    const rotateY = ((x - centerX) / centerX) * 5;
+    
+    setTilt(`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
+  };
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setTilt("");
+  };
+
+  const baseTransform = style?.transform || "";
+  const innerStyle = { ...style };
+  delete innerStyle.transform;
+
+  return (
+    <div 
+      style={{
+        transform: isHovered ? `${baseTransform} translateY(-12px)` : baseTransform,
+        transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+        perspective: "1200px",
+        zIndex: isHovered ? 10 : style?.zIndex,
+        height: "100%"
+      }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+    >
+      <div 
+        ref={cardRef}
+        className={className}
+        style={{
+          ...innerStyle,
+          transform: isHovered ? tilt : "rotateX(0deg) rotateY(0deg)",
+          transition: isHovered 
+            ? "transform 0.1s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.5s" 
+            : "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+          boxShadow: isHovered ? "0 25px 50px rgba(236, 72, 153, 0.25)" : style?.boxShadow,
+          height: "100%",
+          margin: 0
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
 
 export default function PricingPage() {
   return (
@@ -48,26 +113,26 @@ export default function PricingPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 32, alignItems: "center" }}>
             
             {/* Starter Plan */}
-            <div className="glass-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.2s" }}>
+            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.2s" }}>
               <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>Starter</h3>
               <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>Perfect for individuals exploring automation.</p>
-              <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24 }}>₹0<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
+              <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24 }}>₹299<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
               <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12 }}>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> 100 Workflow runs/mo</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> 5 Custom MCPs</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Community Support</li>
               </ul>
               <Link href="/signup" className="btn btn-secondary" style={{ width: "100%" }}>Get Started</Link>
-            </div>
+            </TiltCard>
 
             {/* Pro Plan */}
-            <div className="glass-card animate-fade-in-up" style={{ padding: 40, border: "2px solid var(--accent)", position: "relative", animationDelay: "0.3s", transform: "scale(1.05)" }}>
+            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, border: "2px solid var(--accent)", position: "relative", animationDelay: "0.3s", transform: "scale(1.05)", overflow: "visible" }}>
               <div style={{ position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)", background: "var(--accent)", color: "white", padding: "4px 16px", borderRadius: 100, fontSize: 12, fontWeight: 700, letterSpacing: 1 }}>
                 MOST POPULAR
               </div>
               <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>Professional</h3>
               <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>For teams building production AI workflows.</p>
-              <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24, color: "var(--accent)" }}>₹999<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
+              <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24, color: "var(--accent)" }}>₹899<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
               <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12 }}>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Unlimited Workflow runs</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Unlimited Custom MCPs</li>
@@ -75,13 +140,13 @@ export default function PricingPage() {
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Priority Email Support</li>
               </ul>
               <Link href="/signup" className="btn btn-primary" style={{ width: "100%" }}>Upgrade to Pro</Link>
-            </div>
+            </TiltCard>
 
             {/* Enterprise Plan */}
-            <div className="glass-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.4s" }}>
+            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.4s" }}>
               <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>Enterprise</h3>
               <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>Custom solutions for large organizations.</p>
-              <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24 }}>₹4999<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
+              <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24 }}>₹1199<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
               <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12 }}>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Dedicated Infrastructure</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> VPC Peering & SOC2 Compliance</li>
@@ -89,7 +154,7 @@ export default function PricingPage() {
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> 99.99% Uptime SLA</li>
               </ul>
               <Link href="/contact" className="btn btn-secondary" style={{ width: "100%" }}>Contact Sales</Link>
-            </div>
+            </TiltCard>
 
           </div>
         </div>

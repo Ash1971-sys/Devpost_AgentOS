@@ -518,3 +518,9 @@ body {
     gap: 16px !important;
   }
 }
+.pricing-card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.pricing-card:hover {
+  border-color: var(--accent-pink) !important;
+}
