@@ -15,10 +15,11 @@ export default function SignupPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  if (isAuthenticated) {
-    router.push("/dashboard");
-    return null;
-  }
+  // Commented out to allow viewing the UI even if authenticated
+  // if (isAuthenticated) {
+  //   router.push("/dashboard");
+  //   return null;
+  // }
 
   const googleLogin = useGoogleLogin({
     onSuccess: async (codeResponse) => {

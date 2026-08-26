@@ -14,13 +14,14 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.push("/dashboard");
-    }
-  }, [isAuthenticated, router]);
+  // Commented out to allow viewing the UI even if authenticated
+  // useEffect(() => {
+  //   if (isAuthenticated) {
+  //     router.push("/dashboard");
+  //   }
+  // }, [isAuthenticated, router]);
 
-  if (isAuthenticated) return null;
+  // if (isAuthenticated) return null;
 
   const googleLogin = useGoogleLogin({
     onSuccess: async (codeResponse) => {
@@ -144,14 +145,19 @@ export default function LoginPage() {
             </svg>
             Sign in with Google
           </button>
+          <Link href="/signup" style={{ textDecoration: "none" }}>
+            <button
+              className="btn btn-ghost btn-lg"
+              style={{ width: "100%", marginTop: 12, border: "1px solid var(--border-primary)" }}
+            >
+              Create an account
+            </button>
+          </Link>
         </div>
 
         {/* Footer */}
         <p style={{ textAlign: "center", marginTop: 24, fontSize: 14, color: "var(--text-secondary)" }}>
-          Don&apos;t have an account?{" "}
-          <Link href="/signup" style={{ color: "var(--accent)", textDecoration: "none", fontWeight: 500 }}>
-            Sign up
-          </Link>
+          Need help? <Link href="/contact" style={{ color: "var(--accent)" }}>Contact Support</Link>
         </p>
       </div>
     </div>
