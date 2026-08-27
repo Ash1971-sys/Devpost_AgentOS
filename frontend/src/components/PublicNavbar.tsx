@@ -109,6 +109,7 @@ export default function PublicNavbar() {
       <div 
         className={`lg:hidden fixed inset-0 top-[73px] z-[90] glass-card transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-4'}`}
         style={{ 
+          position: "fixed",
           background: "var(--bg-card)",
           backdropFilter: "blur(40px)",
           border: "none",
