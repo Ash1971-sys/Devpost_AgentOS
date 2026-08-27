@@ -55,7 +55,7 @@ export default function PublicNavbar() {
         transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
       }}>
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none" }}>
+        <Link href="/" style={{ textDecoration: "none" }} aria-label="AgentOS Home">
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{
               width: 32, height: 32, borderRadius: "8px",

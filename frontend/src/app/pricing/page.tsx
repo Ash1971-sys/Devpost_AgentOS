@@ -89,7 +89,7 @@ export default function PricingPage() {
             
             {/* Starter Plan */}
             <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.2s", display: "flex", flexDirection: "column" }}>
-              <h3 style={{ fontSize: 24, fontWeight: 800, marginBottom: 8 }}>Starter</h3>
+              <h2 style={{ fontSize: 24, fontWeight: 800, marginBottom: 8 }}>Starter</h2>
               <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>Perfect for individuals exploring automation.</p>
               <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24 }}>₹299<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
               <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12, flex: 1, fontWeight: 500, WebkitFontSmoothing: "antialiased" }}>
@@ -102,10 +102,10 @@ export default function PricingPage() {
 
             {/* Pro Plan */}
             <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, border: "2px solid var(--accent)", position: "relative", animationDelay: "0.3s", boxShadow: "0 20px 40px rgba(216, 133, 143, 0.15)", overflow: "visible", display: "flex", flexDirection: "column" }}>
-              <div style={{ position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)", background: "var(--accent)", color: "white", padding: "4px 16px", borderRadius: 100, fontSize: 12, fontWeight: 700, letterSpacing: 1 }}>
+              <div style={{ position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)", background: "var(--accent)", color: "#5c1621", padding: "4px 16px", borderRadius: 100, fontSize: 12, fontWeight: 800, letterSpacing: 1 }}>
                 MOST POPULAR
               </div>
-              <h3 style={{ fontSize: 24, fontWeight: 800, marginBottom: 8 }}>Professional</h3>
+              <h2 style={{ fontSize: 24, fontWeight: 800, marginBottom: 8 }}>Professional</h2>
               <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>For teams building production AI workflows.</p>
               <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24, color: "var(--accent)" }}>₹899<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
               <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12, flex: 1, fontWeight: 500, WebkitFontSmoothing: "antialiased" }}>
@@ -119,7 +119,7 @@ export default function PricingPage() {
 
             {/* Enterprise Plan */}
             <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.4s", display: "flex", flexDirection: "column" }}>
-              <h3 style={{ fontSize: 24, fontWeight: 800, marginBottom: 8 }}>Enterprise</h3>
+              <h2 style={{ fontSize: 24, fontWeight: 800, marginBottom: 8 }}>Enterprise</h2>
               <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>Custom solutions for large organizations.</p>
               <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24 }}>₹1199<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
               <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12, flex: 1, fontWeight: 500, WebkitFontSmoothing: "antialiased" }}>

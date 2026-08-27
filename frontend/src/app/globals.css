@@ -19,7 +19,7 @@
 
   --text-primary: #2b2a27;
   --text-secondary: #5c5b57;
-  --text-tertiary: #8a8984;
+  --text-tertiary: #6b6a65;
 
   --border-primary: rgba(0, 0, 0, 0.08);
   --border-hover: rgba(0, 0, 0, 0.15);
@@ -30,7 +30,7 @@
   --accent-purple: #a58fd8;
   --accent-pink: #d8858f;
   
-  --success: #10b981;
+  --success: #059669;
   --warning: #f59e0b;
   --error: #ef4444;
   --info: #3b82f6;
