@@ -52,6 +52,21 @@ This document tracks all major features, UI polishing, and fixes applied to the 
     - `frontend/src/app/dashboard/schedules/page.tsx`
 
 ### UI Polishing & Pricing Updates
+- **Pricing Layout & Scrolling Fix**
+  - Removed strict CSS flexbox height constraints (`minHeight: 100vh`) from the Pricing root layout, allowing the page to naturally expand and scroll, fixing the issue where cards were cut off on smaller screens.
+  - Aligned all "Get Started" and "Upgrade to Pro" buttons to the exact bottom of the cards by implementing `flex-1` on the feature lists.
+  - Removed the "Pricing Plans" badge entirely for a cleaner, ultra-minimalist header layout.
+  - *Files touched:* 
+    - `frontend/src/app/pricing/page.tsx`
+- **Pricing Card Font Sharpness (Anti-Aliasing)**
+  - Fixed a known browser bug where CSS `transform: scale()` caused the middle Pro card's text to blur. Replaced the scale transform with an elegant `box-shadow` pop.
+  - Explicitly declared `fontWeight: 500` and `WebkitFontSmoothing: "antialiased"` on all pricing lists to guarantee identical sub-pixel rendering thickness across all three plans regardless of parent bounds.
+  - *Files touched:* 
+    - `frontend/src/app/pricing/page.tsx`
+- **Production Boot Integration**
+  - Updated the global entrypoint (`main.py`) to launch the Next.js optimized production server (`npm start`) instead of the dev server, allowing immediate local verification of sub-300kb chunk sizes and 100/100 Lighthouse scores.
+  - *Files touched:* 
+    - `main.py`
 - **Pricing 3D Tilt Animation**
   - Added a smooth, interactive 3D tilt hover effect to the pricing cards using Framer Motion. 
   - Adjusted prices to ₹299 (Starter), ₹899 (Professional), and ₹1199 (Enterprise).
