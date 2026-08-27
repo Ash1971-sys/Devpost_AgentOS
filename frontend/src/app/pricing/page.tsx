@@ -70,12 +70,11 @@ function TiltCard({ children, className, style }: any) {
 
 export default function PricingPage() {
   return (
-    <div className="mesh-gradient" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-      {/* Navbar (Minimal) */}
+    <div className="mesh-gradient">
       <PublicNavbar />
 
-      <main className="flex-1 py-12 px-4 md:py-20 md:px-8" style={{ flex: 1 }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <main className="py-12 px-4 md:py-20 md:px-8">
+        <div style={{ maxWidth: 1200, margin: "0 auto", paddingBottom: 80 }}>
           <div style={{ textAlign: "center", marginBottom: 80 }}>
             <div className="badge animate-fade-in-up" style={{ marginBottom: 24, padding: "6px 16px", background: "rgba(216, 133, 143, 0.1)", color: "var(--accent-pink)", border: "1px solid rgba(216, 133, 143, 0.3)", borderRadius: 100, display: "inline-block" }}>
               Pricing Plans
@@ -88,50 +87,50 @@ export default function PricingPage() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 32, alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 32, alignItems: "stretch" }}>
             
             {/* Starter Plan */}
-            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.2s" }}>
+            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.2s", display: "flex", flexDirection: "column" }}>
               <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>Starter</h3>
               <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>Perfect for individuals exploring automation.</p>
               <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24 }}>₹299<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
-              <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12 }}>
+              <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> 100 Workflow runs/mo</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> 5 Custom MCPs</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Community Support</li>
               </ul>
-              <Link href="/signup" className="btn btn-secondary" style={{ width: "100%" }}>Get Started</Link>
+              <Link href="/signup" className="btn btn-secondary" style={{ width: "100%", marginTop: "auto" }}>Get Started</Link>
             </TiltCard>
 
             {/* Pro Plan */}
-            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, border: "2px solid var(--accent)", position: "relative", animationDelay: "0.3s", transform: "scale(1.05)", overflow: "visible" }}>
+            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, border: "2px solid var(--accent)", position: "relative", animationDelay: "0.3s", transform: "scale(1.05)", overflow: "visible", display: "flex", flexDirection: "column" }}>
               <div style={{ position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)", background: "var(--accent)", color: "white", padding: "4px 16px", borderRadius: 100, fontSize: 12, fontWeight: 700, letterSpacing: 1 }}>
                 MOST POPULAR
               </div>
               <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>Professional</h3>
               <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>For teams building production AI workflows.</p>
               <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24, color: "var(--accent)" }}>₹899<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
-              <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12 }}>
+              <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Unlimited Workflow runs</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Unlimited Custom MCPs</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> GPT-4o & Claude 3.5 Sonnet Support</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Priority Email Support</li>
               </ul>
-              <Link href="/signup" className="btn btn-primary" style={{ width: "100%" }}>Upgrade to Pro</Link>
+              <Link href="/signup" className="btn btn-primary" style={{ width: "100%", marginTop: "auto" }}>Upgrade to Pro</Link>
             </TiltCard>
 
             {/* Enterprise Plan */}
-            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.4s" }}>
+            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.4s", display: "flex", flexDirection: "column" }}>
               <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>Enterprise</h3>
               <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>Custom solutions for large organizations.</p>
               <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24 }}>₹1199<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
-              <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12 }}>
+              <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Dedicated Infrastructure</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> VPC Peering & SOC2 Compliance</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Dedicated Success Manager</li>
                 <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> 99.99% Uptime SLA</li>
               </ul>
-              <Link href="/contact" className="btn btn-secondary" style={{ width: "100%" }}>Contact Sales</Link>
+              <Link href="/contact" className="btn btn-secondary" style={{ width: "100%", marginTop: "auto" }}>Contact Sales</Link>
             </TiltCard>
 
           </div>

@@ -241,7 +241,7 @@ def start_frontend(npm_path: str) -> subprocess.Popen:
     env["PORT"] = FRONTEND_PORT
 
     proc = subprocess.Popen(
-        [npm_path, "run", "dev"],
+        [npm_path, "start"],
         cwd=str(FRONTEND_DIR),
         env=env,
         stdout=subprocess.PIPE,
