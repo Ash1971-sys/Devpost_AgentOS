@@ -4,12 +4,13 @@ import React, { useRef, useState } from "react";
 
 export default function TiltCard({ children, className, style }: any) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [tilt, setTilt] = useState("");
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
+    if (!cardRef.current || !rectRef.current) return;
+    const rect = rectRef.current;
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     
@@ -23,7 +24,12 @@ export default function TiltCard({ children, className, style }: any) {
     setTilt(`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
   };
 
-  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseEnter = () => {
+    if (cardRef.current) {
+      rectRef.current = cardRef.current.getBoundingClientRect();
+    }
+    setIsHovered(true);
+  };
   const handleMouseLeave = () => {
     setIsHovered(false);
     setTilt("");
