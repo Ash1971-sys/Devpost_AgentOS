@@ -20,6 +20,16 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  webpack: (config, { dev, isServer }) => {
+    // Forcefully disable core-js polyfills that Next.js aggressively injects
+    if (!dev && !isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "core-js": false,
+      };
+    }
+    return config;
+  },
 };
 
 export default nextConfig;
