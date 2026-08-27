@@ -53,6 +53,7 @@ This document tracks all major features, UI polishing, and fixes applied to the 
 
 ### UI Polishing & Pricing Updates
 - **Lighthouse 100/100 Accessibility & Performance Fixes**
+  - **Eliminated Synchronous Geometry Reads:** Found and fixed a sneaky `window.scrollY` geometry read in the `PublicNavbar` component that was executing synchronously on component mount. Deferring this initial read via `requestAnimationFrame` prevents the browser from being forced to calculate the layout (Forced Reflow) before the initial paint finishes, saving ~142ms of blocking time! Also fixed a memory leak in the same `useEffect` where the scroll listener was constantly being torn down and re-attached on every scroll tick.
   - **Eliminated Unused JavaScript:** Removed the `"use client"` directive from the main Landing Page (`app/page.tsx`) and the Pricing Page (`app/pricing/page.tsx`). Extracted the interactive `TiltCard` logic into a dedicated Client Component (`components/TiltCard.tsx`). This converts massive static DOM structures (like the node diagrams, Hero text, and layout SVGs) into pure Server Components, slicing ~48.9 KiB of unused Javascript from the initial client payload and instantly satisfying the Lighthouse audit.
   - **Eliminated Font Swapping Reflow:** Configured Next.js Google Fonts (`next/font`) to use `display: "optional"`. This gives the font a tiny window to load and prevents the browser from swapping fonts late in the render cycle, which completely eliminates the 'Forced Reflow' layout shifts (FOUT) that were costing ~81-104ms on initial load.
   - **Eliminated Render-Blocking CSS:** Enabled experimental `optimizeCss` in `next.config.ts` (and installed `critters`) to extract and inline critical CSS directly into the HTML document. This eliminates the `244e-bwc3p996.css` render-blocking request, severely trims down the critical Network Dependency Tree, and resolves 'Forced Reflow' Layout shifts caused by delayed stylesheet execution.
@@ -61,6 +62,7 @@ This document tracks all major features, UI polishing, and fixes applied to the 
   - Resolved `Links do not have a discernible name` by adding descriptive `aria-label`s to the logo link in the public navigation bar and the social media icon links (Twitter/GitHub) in the footer.
   - Resolved `Background and foreground colors do not have a sufficient contrast ratio` by darkening `--text-tertiary` (for the `/mo` span), `--success` (for the green checkmarks), and setting the "MOST POPULAR" badge text to a deep, dark red (`#5c1621`) to guarantee WCAG AA contrast compliance against the pink accent background.
   - *Files touched:* 
+    - `frontend/src/components/PublicNavbar.tsx`
     - `frontend/src/app/page.tsx`
     - `frontend/src/app/pricing/page.tsx`
     - `frontend/src/components/TiltCard.tsx` (NEW)
@@ -69,7 +71,6 @@ This document tracks all major features, UI polishing, and fixes applied to the 
     - `frontend/package.json`
     - `frontend/tsconfig.json`
     - `frontend/src/app/globals.css`
-    - `frontend/src/components/PublicNavbar.tsx`
 - **Pricing Layout & Scrolling Fix**
   - Removed strict CSS flexbox height constraints (`minHeight: 100vh`) from the Pricing root layout, allowing the page to naturally expand and scroll, fixing the issue where cards were cut off on smaller screens.
   - Aligned all "Get Started" and "Upgrade to Pro" buttons to the exact bottom of the cards by implementing `flex-1` on the feature lists.

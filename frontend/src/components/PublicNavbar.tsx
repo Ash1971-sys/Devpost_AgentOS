@@ -11,19 +11,26 @@ export default function PublicNavbar() {
   const pathname = usePathname();
 
   useEffect(() => {
+    let currentLastScrollY = 0;
+    
+    // Defer initial read to avoid Forced Reflow on mount
+    requestAnimationFrame(() => {
+      currentLastScrollY = window.scrollY;
+    });
+    
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      if (currentScrollY > currentLastScrollY && currentScrollY > 100) {
         setShowNavbar(false);
       } else {
         setShowNavbar(true);
       }
-      setLastScrollY(currentScrollY);
+      currentLastScrollY = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   // Close mobile menu when route changes
   useEffect(() => {
