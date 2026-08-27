@@ -30,21 +30,21 @@ export default function ContactPage() {
       <PublicNavbar />
 
       {/* Content */}
-      <main className="px-4 py-12 md:py-20" style={{ flex: 1, maxWidth: 1000, margin: "0 auto", width: "100%" }}>
-        <div style={{ textAlign: "center", marginBottom: 60 }}>
-          <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: 800, marginBottom: 24 }} className="gradient-text">
+      <main className="px-4 py-12 md:py-20 max-w-5xl mx-auto w-full flex-1">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 gradient-text">
             Get in Touch
           </h1>
-          <p style={{ fontSize: 20, color: "var(--text-secondary)", maxWidth: 600, margin: "0 auto" }}>
+          <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl mx-auto">
             Have a question about AgentOS, or want to discuss enterprise deployments? 
             Reach out to our founding team directly.
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 350px), 1fr))", gap: 48, alignItems: "start" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Contact Details */}
-          <div className="glass-card" style={{ padding: 40, borderTop: "4px solid var(--accent-pink)" }}>
-            <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 24 }}>Connect with us</h2>
+          <div className="glass-card p-6 md:p-10 border-t-4 border-[var(--accent-pink)]">
+            <h2 className="text-xl md:text-2xl font-bold mb-6">Connect with us</h2>
             
             <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
               <div>
@@ -87,8 +87,8 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Form */}
-          <div className="glass-card" style={{ padding: 40, borderTop: "4px solid var(--accent-purple)" }}>
-            <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 24 }}>Send a Message</h2>
+          <div className="glass-card p-6 md:p-10 border-t-4 border-[var(--accent-purple)]">
+            <h2 className="text-xl md:text-2xl font-bold mb-6">Send a Message</h2>
             
             {status === "success" ? (
               <div style={{ padding: 32, textAlign: "center", background: "var(--success-subtle)", borderRadius: "var(--radius-md)", border: "1px solid var(--success)" }}>
@@ -145,8 +145,8 @@ export default function ContactPage() {
       </main>
 
       {/* Footer */}
-      <footer style={{ padding: "64px 40px", borderTop: "1px solid var(--border-primary)", background: "var(--bg-primary)", marginTop: 80 }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", textAlign: "center", color: "var(--text-secondary)" }}>
+      <footer className="py-12 px-6 md:py-16 md:px-10 border-t border-[var(--border-primary)] bg-[var(--bg-primary)] mt-12 md:mt-20">
+        <div className="max-w-6xl mx-auto text-center text-[var(--text-secondary)]">
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginBottom: 24 }}>
             <div style={{
               width: 24, height: 24, borderRadius: "6px",

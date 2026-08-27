@@ -105,10 +105,14 @@ function SignupContent() {
   );
 }
 
+import { AuthProvider } from "@/lib/auth-context";
+
 export default function SignupPage() {
   return (
-    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "dummy-client-id"}>
-      <SignupContent />
-    </GoogleOAuthProvider>
+    <AuthProvider>
+      <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "dummy-client-id"}>
+        <SignupContent />
+      </GoogleOAuthProvider>
+    </AuthProvider>
   );
 }

@@ -7,48 +7,42 @@ export default function DocsPage() {
       <PublicNavbar />
 
       <main className="px-4 py-12 md:py-20 flex-1 flex flex-col items-center">
-        <div style={{ maxWidth: 1000, width: "100%", textAlign: "center" }}>
-          <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: 800, marginBottom: 24 }} className="gradient-text">
+        <div className="max-w-5xl w-full text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 gradient-text">
             Documentation
           </h1>
-          <p style={{ fontSize: 20, color: "var(--text-secondary)", marginBottom: 48, maxWidth: 600, margin: "0 auto 48px" }}>
+          <p className="text-lg md:text-xl text-[var(--text-secondary)] mb-12 max-w-2xl mx-auto">
             Learn how to build, deploy, and scale autonomous AI agents with AgentOS.
           </p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 32, textAlign: "left" }}>
-            <div className="glass-card" style={{ padding: 32 }}>
-              <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>Quickstart</h3>
-              <p style={{ color: "var(--text-secondary)", marginBottom: 24, lineHeight: 1.6 }}>
-                Get up and running with AgentOS in less than 5 minutes.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            <div className="glass-card p-6 md:p-10 border-t-2 border-[var(--accent)]">
+              <h2 className="text-xl md:text-2xl font-bold mb-4">Quickstart</h2>
+              <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
+                Learn how to install the CLI and initialize your first autonomous workflow in under 5 minutes.
               </p>
-              <Link href="/get-started" className="text-primary hover:underline font-semibold">
-                Read guide &rarr;
-              </Link>
+              <Link href="#" className="text-[var(--accent)] font-bold hover:underline">Read Guide &rarr;</Link>
             </div>
-
-            <div className="glass-card" style={{ padding: 32 }}>
-              <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>MCP Servers</h3>
-              <p style={{ color: "var(--text-secondary)", marginBottom: 24, lineHeight: 1.6 }}>
-                Learn how to dynamically generate Model Context Protocol servers.
+            
+            <div className="glass-card p-6 md:p-10 border-t-2 border-[var(--accent-pink)]">
+              <h2 className="text-xl md:text-2xl font-bold mb-4">MCP Servers</h2>
+              <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
+                Connect external APIs like Stripe, Slack, and GitHub. If a server doesn't exist, we'll build it.
               </p>
-              <Link href="#" className="text-primary hover:underline font-semibold">
-                Read guide &rarr;
-              </Link>
+              <Link href="#" className="text-[var(--accent-pink)] font-bold hover:underline">View Docs &rarr;</Link>
             </div>
-
-            <div className="glass-card" style={{ padding: 32 }}>
-              <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>Human-in-the-Loop</h3>
-              <p style={{ color: "var(--text-secondary)", marginBottom: 24, lineHeight: 1.6 }}>
-                Set up approval workflows for critical agent actions.
+            
+            <div className="glass-card p-6 md:p-10 border-t-2 border-[var(--accent-purple)]">
+              <h2 className="text-xl md:text-2xl font-bold mb-4">Human-in-the-Loop</h2>
+              <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
+                Configure approval checkpoints for sensitive actions, ensuring complete control over automation.
               </p>
-              <Link href="#" className="text-primary hover:underline font-semibold">
-                Read guide &rarr;
-              </Link>
+              <Link href="#" className="text-[var(--accent-purple)] font-bold hover:underline">Learn More &rarr;</Link>
             </div>
-
-            <div className="glass-card" style={{ padding: 32 }}>
-              <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>API Reference</h3>
-              <p style={{ color: "var(--text-secondary)", marginBottom: 24, lineHeight: 1.6 }}>
+            
+            <div className="glass-card p-6 md:p-10 border-t-2 border-[var(--success)]">
+              <h2 className="text-xl md:text-2xl font-bold mb-4">API Reference</h2>
+              <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
                 Explore the complete AgentOS REST and GraphQL APIs.
               </p>
               <Link href="#" className="text-primary hover:underline font-semibold">

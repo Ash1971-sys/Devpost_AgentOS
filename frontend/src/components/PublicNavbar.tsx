@@ -95,16 +95,16 @@ export default function PublicNavbar() {
         </div>
 
         {/* Mobile Hamburger Toggle */}
-        <button 
-          className="lg:hidden flex flex-col justify-center items-center w-10 h-10 focus:outline-none z-[110]"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
+        <input type="checkbox" id="mobile-menu-toggle" className="peer hidden" checked={isMobileMenuOpen} onChange={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+        <label 
+          htmlFor="mobile-menu-toggle"
+          className="lg:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer relative z-[110] peer-checked:[&>span:nth-child(1)]:translate-y-[8px] peer-checked:[&>span:nth-child(1)]:rotate-45 peer-checked:[&>span:nth-child(2)]:opacity-0 peer-checked:[&>span:nth-child(3)]:-translate-y-[8px] peer-checked:[&>span:nth-child(3)]:-rotate-45"
           style={{ gap: 6 }}
         >
-          <span style={{ width: 24, height: 2, background: "var(--text-primary)", borderRadius: 2, transition: "transform 0.3s ease-in-out, opacity 0.3s ease-in-out", transform: isMobileMenuOpen ? 'translateY(8px) rotate(45deg)' : 'none' }}></span>
-          <span style={{ width: 24, height: 2, background: "var(--text-primary)", borderRadius: 2, transition: "opacity 0.3s ease-in-out", opacity: isMobileMenuOpen ? 0 : 1 }}></span>
-          <span style={{ width: 24, height: 2, background: "var(--text-primary)", borderRadius: 2, transition: "transform 0.3s ease-in-out", transform: isMobileMenuOpen ? 'translateY(-8px) rotate(-45deg)' : 'none' }}></span>
-        </button>
+          <span style={{ width: 24, height: 2, background: "var(--text-primary)", borderRadius: 2 }} className="transition-all duration-300"></span>
+          <span style={{ width: 24, height: 2, background: "var(--text-primary)", borderRadius: 2 }} className="transition-all duration-300"></span>
+          <span style={{ width: 24, height: 2, background: "var(--text-primary)", borderRadius: 2 }} className="transition-all duration-300"></span>
+        </label>
       </header>
 
       {/* Mobile Menu Dropdown */}

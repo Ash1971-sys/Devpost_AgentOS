@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuth } from "@/lib/auth-context";
+import { useAuth, AuthProvider } from "@/lib/auth-context";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect, ReactNode, useRef } from "react";
@@ -72,6 +72,14 @@ const NAV_ITEMS = [
 ];
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
+  return (
+    <AuthProvider>
+      <DashboardInner>{children}</DashboardInner>
+    </AuthProvider>
+  );
+}
+
+function DashboardInner({ children }: { children: ReactNode }) {
   const { user, isAuthenticated, isLoading, logout } = useAuth();
   const router = useRouter();
   const pathname = usePathname();

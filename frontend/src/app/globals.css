@@ -50,8 +50,6 @@
    ══════════════════════════════════════════════════════════════════ */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -555,7 +553,6 @@ body {
 @media (max-width: 768px) {
   .navbar-public {
     padding: 16px !important;
-    flex-wrap: wrap !important;
   }
   .navbar-public-links {
     width: 100%;
@@ -574,4 +571,19 @@ body {
 }
 .pricing-card:hover {
   border-color: var(--accent-pink) !important;
+}
+
+/* Low-end device / Save Data optimizations */
+:root.reduce-data .mesh-gradient {
+  background: var(--bg-primary) !important;
+  filter: none !important;
+}
+:root.reduce-data .animate-float {
+  animation: none !important;
+  transform: none !important;
+}
+:root.reduce-data .glass-card {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: var(--bg-secondary) !important;
 }

@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import withBundleAnalyzer from "@next/bundle-analyzer";
 
 const nextConfig: NextConfig = {
   compress: true, // Enable gzip compression
@@ -27,11 +28,17 @@ const nextConfig: NextConfig = {
         ...config.resolve.alias,
         "core-js": false,
         "@swc/helpers": false,
+        "next/dist/client/polyfills": false,
         "next/dist/build/polyfills/polyfill-nomodule": false,
+        "next/dist/build/polyfills/polyfills": false,
       };
     }
     return config;
   },
 };
 
-export default nextConfig;
+const analyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
+
+export default analyzer(nextConfig);

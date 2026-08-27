@@ -80,12 +80,12 @@ export default function BlogPage() {
       <main className="px-4 py-12 md:py-20 flex-1 flex flex-col items-center relative">
         <div style={{ maxWidth: 1200, width: "100%", textAlign: "center" }}>
           
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24, marginBottom: 48, marginTop: 16 }}>
-            <div style={{ textAlign: "left" }}>
-              <h1 style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: 800, marginBottom: 16 }} className="gradient-text">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 mt-4">
+            <div className="text-left">
+              <h1 className="text-4xl md:text-5xl font-extrabold mb-4 gradient-text">
                 AgentOS Blog
               </h1>
-              <p style={{ fontSize: 20, color: "var(--text-secondary)", maxWidth: 600 }}>
+              <p className="text-lg md:text-xl text-[var(--text-secondary)] max-w-2xl">
                 The latest news, engineering insights, and updates from the AgentOS team and community.
               </p>
             </div>
@@ -124,25 +124,17 @@ export default function BlogPage() {
               <div className="spinner" style={{ width: 48, height: 48 }} />
             </div>
           ) : (
-            <div style={{ 
-              display: "grid", 
-              gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", 
-              gap: 32, 
-              textAlign: "left" 
-            }}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
               {posts.map((post, i) => (
-                <div key={i} className="glass-card transition-transform hover:-translate-y-2 duration-300 flex flex-col" style={{ padding: 32, cursor: "pointer", height: "100%" }}>
+                <div key={i} className="glass-card transition-transform hover:-translate-y-2 duration-300 flex flex-col p-6 md:p-8 cursor-pointer h-full">
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
-                    <span style={{ 
-                      background: "rgba(236, 72, 153, 0.1)", color: "var(--accent-pink)", 
-                      padding: "4px 12px", borderRadius: 20, fontSize: 12, fontWeight: 700 
-                    }}>
+                    <span className="bg-[rgba(236,72,153,0.1)] text-[var(--accent-pink)] px-3 py-1 rounded-full text-xs font-bold">
                       {post.category}
                     </span>
                     <span style={{ color: "var(--text-tertiary)", fontSize: 13 }}>{post.date}</span>
                   </div>
-                  <h3 style={{ fontSize: 24, fontWeight: 800, marginBottom: 16, lineHeight: 1.3 }}>{post.title}</h3>
-                  <p style={{ color: "var(--text-secondary)", fontSize: 16, lineHeight: 1.6, marginBottom: 24, flex: 1 }}>
+                  <h2 className="text-xl md:text-2xl font-extrabold mb-4 leading-tight">{post.title}</h2>
+                  <p className="text-base text-[var(--text-secondary)] leading-relaxed mb-6 flex-1">
                     {post.excerpt}
                   </p>
                   <Link href="#" className="text-primary font-bold hover:underline" style={{ marginTop: "auto" }}>
@@ -162,10 +154,7 @@ export default function BlogPage() {
           background: "rgba(0,0,0,0.6)", backdropFilter: "blur(8px)",
           display: "flex", alignItems: "center", justifyContent: "center", padding: 16
         }}>
-          <div className="glass-card animate-fade-in-up" style={{ 
-            width: "100%", maxWidth: 600, padding: 32, 
-            background: "var(--bg-card)", border: "1px solid var(--border-primary)" 
-          }}>
+          <div className="glass-card animate-fade-in-up w-full max-w-2xl p-6 md:p-8 bg-[var(--bg-card)] border border-[var(--border-primary)]">
             <h2 style={{ fontSize: 28, fontWeight: 800, marginBottom: 8 }}>Write a Post</h2>
             <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>Share your insights with the community. Abusive language is strictly prohibited.</p>
             

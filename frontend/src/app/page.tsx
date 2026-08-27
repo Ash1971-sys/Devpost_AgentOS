@@ -142,7 +142,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features Grid Section */}
-      <section style={{ padding: "120px 20px", background: "var(--bg-primary)", position: "relative" }}>
+      <section className="py-20 md:py-32 px-5 relative" style={{ background: "var(--bg-primary)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 80 }}>
             <h2 className="animate-fade-in-up" style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 800, marginBottom: 24 }}>
@@ -153,27 +153,27 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 32 }}>
-            <div className="glass-card animate-fade-in-up" style={{ padding: 40, borderTop: "2px solid var(--accent-pink)" }}>
-              <div style={{ fontSize: 40, marginBottom: 24 }}>🧠</div>
-              <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>Autonomous Planning</h3>
-              <p style={{ color: "var(--text-secondary)", lineHeight: 1.6 }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="glass-card animate-fade-in-up p-6 md:p-8 border-t-2 border-[var(--accent-pink)]">
+              <div className="text-4xl mb-6">🧠</div>
+              <h3 className="text-xl md:text-2xl font-bold mb-4">Autonomous Planning</h3>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
                 Give AgentOS a high-level goal, and it will break it down into a DAG of executable tasks, routing them to specialized sub-agents.
               </p>
             </div>
             
-            <div className="glass-card animate-fade-in-up" style={{ padding: 40, borderTop: "2px solid var(--accent-purple)", animationDelay: "0.1s" }}>
-              <div style={{ fontSize: 40, marginBottom: 24 }}>🛠️</div>
-              <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>Dynamic MCP Builder</h3>
-              <p style={{ color: "var(--text-secondary)", lineHeight: 1.6 }}>
+            <div className="glass-card animate-fade-in-up p-6 md:p-8 border-t-2 border-[var(--accent-purple)]" style={{ animationDelay: "0.1s" }}>
+              <div className="text-4xl mb-6">🛠️</div>
+              <h3 className="text-xl md:text-2xl font-bold mb-4">Dynamic MCP Builder</h3>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
                 Missing an API connector? AgentOS will search the web, read the docs, and write the Python MCP connector from scratch.
               </p>
             </div>
             
-            <div className="glass-card animate-fade-in-up" style={{ padding: 40, borderTop: "2px solid var(--accent)", animationDelay: "0.2s" }}>
-              <div style={{ fontSize: 40, marginBottom: 24 }}>🔒</div>
-              <h3 style={{ fontSize: 24, fontWeight: 700, marginBottom: 16 }}>Enterprise Security</h3>
-              <p style={{ color: "var(--text-secondary)", lineHeight: 1.6 }}>
+            <div className="glass-card animate-fade-in-up p-6 md:p-8 border-t-2 border-[var(--accent)]" style={{ animationDelay: "0.2s" }}>
+              <div className="text-4xl mb-6">🔒</div>
+              <h3 className="text-xl md:text-2xl font-bold mb-4">Enterprise Security</h3>
+              <p className="text-[var(--text-secondary)] leading-relaxed">
                 Built with full AST static analysis, sandboxed Docker execution, Google OAuth, and strict CSP headers.
               </p>
             </div>
@@ -182,7 +182,7 @@ export default function LandingPage() {
       </section>
 
       {/* How it Works Section */}
-      <section style={{ padding: "120px 20px", position: "relative", overflow: "hidden" }}>
+      <section className="py-20 md:py-32 px-5 relative overflow-hidden">
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(180deg, var(--bg-primary) 0%, rgba(139, 92, 246, 0.05) 100%)", zIndex: -1 }} />
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 80 }}>
@@ -191,17 +191,17 @@ export default function LandingPage() {
             </h2>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 64 }}>
+          <div className="flex flex-col gap-16 md:gap-24">
             {/* Step 1 */}
-            <div style={{ display: "flex", gap: 40, alignItems: "center", flexWrap: "wrap" }}>
-              <div style={{ flex: "1 1 400px" }}>
+            <div className="flex flex-col lg:flex-row gap-10 items-center">
+              <div className="flex-1 w-full">
                 <div className="gradient-text" style={{ fontSize: 80, fontWeight: 900, lineHeight: 1, marginBottom: 24, opacity: 0.8 }}>01</div>
                 <h3 style={{ fontSize: 32, fontWeight: 700, marginBottom: 16 }}>Define your Intent</h3>
                 <p style={{ fontSize: 18, color: "var(--text-secondary)", lineHeight: 1.6 }}>
                   Start by typing what you want to achieve. No coding required. The Intent Agent parses your request and maps it to the necessary systems.
                 </p>
               </div>
-              <div className="glass-card" style={{ flex: "1 1 400px", padding: 32, background: "rgba(0,0,0,0.85)" }}>
+              <div className="glass-card flex-1 w-full p-8" style={{ background: "rgba(0,0,0,0.85)" }}>
                 <div style={{ fontFamily: "var(--font-mono)", color: "var(--success)" }}>
                   &gt; Goal: Analyze our latest Stripe transactions and generate a PDF report.
                 </div>
@@ -209,15 +209,15 @@ export default function LandingPage() {
             </div>
 
             {/* Step 2 */}
-            <div style={{ display: "flex", gap: 40, alignItems: "center", flexWrap: "wrap", flexDirection: "row-reverse" }}>
-              <div style={{ flex: "1 1 400px" }}>
+            <div className="flex flex-col lg:flex-row-reverse gap-10 items-center">
+              <div className="flex-1 w-full">
                 <div className="gradient-text" style={{ fontSize: 80, fontWeight: 900, lineHeight: 1, marginBottom: 24, opacity: 0.8 }}>02</div>
                 <h3 style={{ fontSize: 32, fontWeight: 700, marginBottom: 16 }}>Dynamic Assembly</h3>
                 <p style={{ fontSize: 18, color: "var(--text-secondary)", lineHeight: 1.6 }}>
                   If a tool doesn't exist, the platform automatically writes and validates the Model Context Protocol (MCP) server for the integration on-the-fly.
                 </p>
               </div>
-              <div className="glass-card" style={{ flex: "1 1 400px", padding: 32, background: "rgba(0,0,0,0.85)" }}>
+              <div className="glass-card flex-1 w-full p-8" style={{ background: "rgba(0,0,0,0.85)" }}>
                 <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
                   <div className="spinner" style={{ width: 24, height: 24, borderColor: "var(--accent-pink) transparent transparent transparent" }} />
                   <span style={{ color: "var(--accent-pink)", fontFamily: "var(--font-mono)" }}>Building Stripe MCP...</span>
@@ -226,15 +226,15 @@ export default function LandingPage() {
             </div>
 
             {/* Step 3 */}
-            <div style={{ display: "flex", gap: 40, alignItems: "center", flexWrap: "wrap" }}>
-              <div style={{ flex: "1 1 400px" }}>
+            <div className="flex flex-col lg:flex-row gap-10 items-center">
+              <div className="flex-1 w-full">
                 <div className="gradient-text" style={{ fontSize: 80, fontWeight: 900, lineHeight: 1, marginBottom: 24, opacity: 0.8 }}>03</div>
                 <h3 style={{ fontSize: 32, fontWeight: 700, marginBottom: 16 }}>Execute & Monitor</h3>
                 <p style={{ fontSize: 18, color: "var(--text-secondary)", lineHeight: 1.6 }}>
                   The Orchestrator executes the workflow, handling retries, circuit breakers, and human-in-the-loop approvals automatically.
                 </p>
               </div>
-              <div className="glass-card" style={{ flex: "1 1 400px", padding: 32, background: "rgba(0,0,0,0.85)", color: "white", fontFamily: "var(--font-mono)" }}>
+              <div className="glass-card flex-1 w-full p-8" style={{ background: "rgba(0,0,0,0.85)", color: "white", fontFamily: "var(--font-mono)" }}>
                 <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: 8 }}>
                     <span>Fetch Data</span> <span style={{ color: "var(--success)" }}>DONE</span>
@@ -253,13 +253,13 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section style={{ padding: "120px 20px", textAlign: "center", background: "var(--bg-secondary)", position: "relative" }}>
+      <section className="py-20 md:py-32 px-5 text-center relative" style={{ background: "var(--bg-secondary)" }}>
         <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "100%", maxWidth: 800, height: 1, background: "linear-gradient(90deg, transparent, var(--accent), transparent)" }} />
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <h2 style={{ fontSize: "clamp(36px, 6vw, 64px)", fontWeight: 900, marginBottom: 32 }}>
             Ready to build the future?
           </h2>
-          <p style={{ fontSize: 24, color: "var(--text-secondary)", marginBottom: 48 }}>
+          <p style={{ fontSize: "clamp(18px, 4vw, 24px)", color: "var(--text-secondary)", marginBottom: 48 }}>
             Join thousands of developers automating their workflows with AgentOS.
           </p>
           <Link href="/signup" className="btn btn-primary btn-lg" style={{ transform: "scale(1.1)" }}>
@@ -269,7 +269,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer style={{ padding: "64px clamp(20px, 5vw, 40px)", borderTop: "1px solid var(--border-primary)", background: "var(--bg-primary)" }}>
+      <footer className="pt-16 pb-8 px-5" style={{ borderTop: "1px solid var(--border-primary)", background: "var(--bg-primary)" }}>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12" style={{ maxWidth: 1200, margin: "0 auto" }}>
           <div className="col-span-2 lg:col-span-1 mb-2 lg:mb-0">
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>

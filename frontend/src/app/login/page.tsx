@@ -90,10 +90,14 @@ function LoginContent() {
   );
 }
 
+import { AuthProvider } from "@/lib/auth-context";
+
 export default function LoginPage() {
   return (
-    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "dummy-client-id"}>
-      <LoginContent />
-    </GoogleOAuthProvider>
+    <AuthProvider>
+      <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "dummy-client-id"}>
+        <LoginContent />
+      </GoogleOAuthProvider>
+    </AuthProvider>
   );
 }

@@ -3,7 +3,10 @@ import fs from "fs";
 import path from "path";
 
 // A simple bad word filter (expand as needed)
-const BAD_WORDS = ["abusive", "spam", "idiot", "hate", "scam", "stupid"];
+const BAD_WORDS = [
+  "abusive", "spam", "idiot", "hate", "scam", "stupid",
+  "crap", "dumb", "loser", "jerk", "moron", "trash", "fake", "phishing", "profanity"
+];
 
 // Path to the JSON data file
 const dataFilePath = path.join(process.cwd(), "data", "blogs.json");

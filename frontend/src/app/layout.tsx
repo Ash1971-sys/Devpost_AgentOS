@@ -1,10 +1,17 @@
-import type { Metadata } from "next";
-import { AuthProvider } from "@/lib/auth-context";
+import type { Metadata, Viewport } from "next";
 import fs from "fs";
 import path from "path";
+import { NetworkStatusProvider } from "@/hooks/NetworkStatusProvider";
 // Load compiled CSS for inline injection
+
 const cssPath = path.join(process.cwd(), "src", "app", "built.css");
 const inlineCss = fs.existsSync(cssPath) ? fs.readFileSync(cssPath, "utf8") : "";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: "AgentOS — The Autonomous AI Workspace",
@@ -32,12 +39,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         {inlineCss && <style dangerouslySetInnerHTML={{ __html: inlineCss }} />}
       </head>
       <body className="font-sans">
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        <NetworkStatusProvider />
+        {children}
       </body>
     </html>
   );

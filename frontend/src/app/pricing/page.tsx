@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import PublicNavbar from "@/components/PublicNavbar";
-import TiltCard from "@/components/TiltCard";
+import dynamic from "next/dynamic";
 
-
+const TiltCard = dynamic(() => import("@/components/TiltCard"));
 
 export default function PricingPage() {
   return (
@@ -11,61 +11,61 @@ export default function PricingPage() {
       <PublicNavbar />
 
       <main className="py-12 px-4 md:py-20 md:px-8">
-        <div style={{ maxWidth: 1200, margin: "0 auto", paddingBottom: 80 }}>
-          <div style={{ textAlign: "center", marginBottom: 80, marginTop: 40 }}>
+        <div className="max-w-6xl mx-auto pb-10 md:pb-20">
+          <div className="text-center mb-16 md:mb-20 mt-6 md:mt-10">
 
-            <h1 className="animate-fade-in-up" style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: 900, marginBottom: 24, color: "var(--text-primary)" }}>
+            <h1 className="animate-fade-in-up text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-[var(--text-primary)]">
               Simple, transparent pricing.
             </h1>
-            <p className="animate-fade-in-up" style={{ fontSize: 20, color: "var(--text-secondary)", animationDelay: "0.1s" }}>
+            <p className="animate-fade-in-up text-lg md:text-xl text-[var(--text-secondary)]" style={{ animationDelay: "0.1s" }}>
               Start for free, upgrade when you need more power.
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 32, alignItems: "stretch" }}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 items-stretch">
             
             {/* Starter Plan */}
-            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.2s", display: "flex", flexDirection: "column" }}>
-              <h2 style={{ fontSize: 24, fontWeight: 800, marginBottom: 8 }}>Starter</h2>
-              <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>Perfect for individuals exploring automation.</p>
-              <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24 }}>₹299<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
-              <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12, flex: 1, fontWeight: 500, WebkitFontSmoothing: "antialiased" }}>
-                <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> 100 Workflow runs/mo</li>
-                <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> 5 Custom MCPs</li>
-                <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Community Support</li>
+            <TiltCard className="glass-card pricing-card animate-fade-in-up p-6 md:p-10 flex flex-col" style={{ animationDelay: "0.2s" }}>
+              <h2 className="text-xl md:text-2xl font-extrabold mb-2">Starter</h2>
+              <p className="text-[var(--text-secondary)] mb-6">Perfect for individuals exploring automation.</p>
+              <div className="text-4xl md:text-5xl font-extrabold mb-6">₹299<span className="text-base text-[var(--text-tertiary)] font-normal">/mo</span></div>
+              <ul className="list-none p-0 mb-8 flex flex-col gap-3 flex-1 font-medium antialiased">
+                <li className="flex gap-2"><span className="text-[var(--success)]">✓</span> 100 Workflow runs/mo</li>
+                <li className="flex gap-2"><span className="text-[var(--success)]">✓</span> 5 Custom MCPs</li>
+                <li className="flex gap-2"><span className="text-[var(--success)]">✓</span> Community Support</li>
               </ul>
-              <Link href="/signup" className="btn btn-secondary" style={{ width: "100%", marginTop: "auto" }}>Get Started</Link>
+              <Link href="/signup" className="btn btn-secondary w-full mt-auto">Get Started</Link>
             </TiltCard>
 
             {/* Pro Plan */}
-            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, border: "2px solid var(--accent)", position: "relative", animationDelay: "0.3s", boxShadow: "0 20px 40px rgba(216, 133, 143, 0.15)", overflow: "visible", display: "flex", flexDirection: "column" }}>
-              <div style={{ position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)", background: "var(--accent)", color: "#5c1621", padding: "4px 16px", borderRadius: 100, fontSize: 12, fontWeight: 800, letterSpacing: 1 }}>
+            <TiltCard className="glass-card pricing-card animate-fade-in-up p-6 md:p-10 flex flex-col relative border-2 border-[var(--accent)]" style={{ animationDelay: "0.3s", boxShadow: "0 20px 40px rgba(216, 133, 143, 0.15)", overflow: "visible" }}>
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[var(--accent)] text-[#5c1621] px-4 py-1 rounded-full text-xs font-extrabold tracking-widest whitespace-nowrap">
                 MOST POPULAR
               </div>
-              <h2 style={{ fontSize: 24, fontWeight: 800, marginBottom: 8 }}>Professional</h2>
-              <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>For teams building production AI workflows.</p>
-              <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24, color: "var(--accent)" }}>₹899<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
-              <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12, flex: 1, fontWeight: 500, WebkitFontSmoothing: "antialiased" }}>
-                <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Unlimited Workflow runs</li>
-                <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Unlimited Custom MCPs</li>
-                <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> GPT-4o & Claude 3.5 Sonnet Support</li>
-                <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Priority Email Support</li>
+              <h2 className="text-xl md:text-2xl font-extrabold mb-2">Professional</h2>
+              <p className="text-[var(--text-secondary)] mb-6">For teams building production AI workflows.</p>
+              <div className="text-4xl md:text-5xl font-extrabold mb-6 text-[var(--accent)]">₹899<span className="text-base text-[var(--text-tertiary)] font-normal">/mo</span></div>
+              <ul className="list-none p-0 mb-8 flex flex-col gap-3 flex-1 font-medium antialiased">
+                <li className="flex gap-2"><span className="text-[var(--success)]">✓</span> Unlimited Workflow runs</li>
+                <li className="flex gap-2"><span className="text-[var(--success)]">✓</span> Unlimited Custom MCPs</li>
+                <li className="flex gap-2"><span className="text-[var(--success)]">✓</span> GPT-4o & Claude 3.5 Sonnet Support</li>
+                <li className="flex gap-2"><span className="text-[var(--success)]">✓</span> Priority Email Support</li>
               </ul>
-              <Link href="/signup" className="btn btn-primary" style={{ width: "100%", marginTop: "auto" }}>Upgrade to Pro</Link>
+              <Link href="/signup" className="btn btn-primary w-full mt-auto text-center">Upgrade to Pro</Link>
             </TiltCard>
 
             {/* Enterprise Plan */}
-            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, animationDelay: "0.4s", display: "flex", flexDirection: "column" }}>
-              <h2 style={{ fontSize: 24, fontWeight: 800, marginBottom: 8 }}>Enterprise</h2>
-              <p style={{ color: "var(--text-secondary)", marginBottom: 24 }}>Custom solutions for large organizations.</p>
-              <div style={{ fontSize: 48, fontWeight: 800, marginBottom: 24 }}>₹1199<span style={{ fontSize: 16, color: "var(--text-tertiary)", fontWeight: 400 }}>/mo</span></div>
-              <ul style={{ listStyle: "none", padding: 0, marginBottom: 32, display: "flex", flexDirection: "column", gap: 12, flex: 1, fontWeight: 500, WebkitFontSmoothing: "antialiased" }}>
-                <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Dedicated Infrastructure</li>
-                <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> VPC Peering & SOC2 Compliance</li>
-                <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> Dedicated Success Manager</li>
-                <li style={{ display: "flex", gap: 8 }}><span style={{ color: "var(--success)" }}>✓</span> 99.99% Uptime SLA</li>
+            <TiltCard className="glass-card pricing-card animate-fade-in-up p-6 md:p-10 flex flex-col" style={{ animationDelay: "0.4s" }}>
+              <h2 className="text-xl md:text-2xl font-extrabold mb-2">Enterprise</h2>
+              <p className="text-[var(--text-secondary)] mb-6">Custom solutions for large organizations.</p>
+              <div className="text-4xl md:text-5xl font-extrabold mb-6">₹1199<span className="text-base text-[var(--text-tertiary)] font-normal">/mo</span></div>
+              <ul className="list-none p-0 mb-8 flex flex-col gap-3 flex-1 font-medium antialiased">
+                <li className="flex gap-2"><span className="text-[var(--success)]">✓</span> Dedicated Infrastructure</li>
+                <li className="flex gap-2"><span className="text-[var(--success)]">✓</span> VPC Peering & SOC2 Compliance</li>
+                <li className="flex gap-2"><span className="text-[var(--success)]">✓</span> Dedicated Success Manager</li>
+                <li className="flex gap-2"><span className="text-[var(--success)]">✓</span> 99.99% Uptime SLA</li>
               </ul>
-              <Link href="/contact" className="btn btn-secondary" style={{ width: "100%", marginTop: "auto" }}>Contact Sales</Link>
+              <Link href="/contact" className="btn btn-secondary w-full mt-auto text-center">Contact Sales</Link>
             </TiltCard>
 
           </div>
