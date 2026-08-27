@@ -26,6 +26,8 @@ const nextConfig: NextConfig = {
       config.resolve.alias = {
         ...config.resolve.alias,
         "core-js": false,
+        "@swc/helpers": false,
+        "next/dist/build/polyfills/polyfill-nomodule": false,
       };
     }
     return config;

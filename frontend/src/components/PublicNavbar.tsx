@@ -13,11 +13,6 @@ export default function PublicNavbar() {
   useEffect(() => {
     let currentLastScrollY = 0;
     
-    // Defer initial read to avoid Forced Reflow on mount
-    requestAnimationFrame(() => {
-      currentLastScrollY = window.scrollY;
-    });
-    
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > currentLastScrollY && currentScrollY > 100) {
