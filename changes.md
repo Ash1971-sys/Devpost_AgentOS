@@ -53,13 +53,14 @@ This document tracks all major features, UI polishing, and fixes applied to the 
 
 ### UI Polishing & Pricing Updates
 - **Lighthouse 100/100 Accessibility Fixes**
-  - Resolved `Heading elements are not in a sequentially-descending order` by updating the pricing card headings from `<h3>` to `<h2>`.
-  - Resolved `Links do not have a discernible name` by adding a descriptive `aria-label` to the logo link in the public navigation bar.
+  - Resolved `Heading elements are not in a sequentially-descending order` by updating the pricing card headings from `<h3>` to `<h2>` and the global footer column headers from `<h4>` to `<h2>`.
+  - Resolved `Links do not have a discernible name` by adding descriptive `aria-label`s to the logo link in the public navigation bar and the social media icon links (Twitter/GitHub) in the footer.
   - Resolved `Background and foreground colors do not have a sufficient contrast ratio` by darkening `--text-tertiary` (for the `/mo` span), `--success` (for the green checkmarks), and setting the "MOST POPULAR" badge text to a deep, dark red (`#5c1621`) to guarantee WCAG AA contrast compliance against the pink accent background.
   - *Files touched:* 
     - `frontend/src/app/globals.css`
     - `frontend/src/components/PublicNavbar.tsx`
     - `frontend/src/app/pricing/page.tsx`
+    - `frontend/src/app/page.tsx`
 - **Pricing Layout & Scrolling Fix**
   - Removed strict CSS flexbox height constraints (`minHeight: 100vh`) from the Pricing root layout, allowing the page to naturally expand and scroll, fixing the issue where cards were cut off on smaller screens.
   - Aligned all "Get Started" and "Upgrade to Pro" buttons to the exact bottom of the cards by implementing `flex-1` on the feature lists.

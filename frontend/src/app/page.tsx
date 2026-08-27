@@ -288,7 +288,7 @@ export default function LandingPage() {
           </div>
           
           <div>
-            <h4 style={{ fontWeight: 600, marginBottom: 16, fontSize: 15 }}>Product</h4>
+            <h2 style={{ fontWeight: 600, marginBottom: 16, fontSize: 15 }}>Product</h2>
             <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 12, color: "var(--text-secondary)", fontSize: 14 }}>
               <li><Link href="/features" className="hover:text-[var(--text-primary)] transition-colors">Features</Link></li>
               <li><Link href="/integrations" className="hover:text-[var(--text-primary)] transition-colors">Integrations</Link></li>
@@ -297,7 +297,7 @@ export default function LandingPage() {
           </div>
           
           <div>
-            <h4 style={{ fontWeight: 600, marginBottom: 16, fontSize: 15 }}>Resources</h4>
+            <h2 style={{ fontWeight: 600, marginBottom: 16, fontSize: 15 }}>Resources</h2>
             <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 12, color: "var(--text-secondary)", fontSize: 14 }}>
               <li><Link href="/docs" className="hover:text-[var(--text-primary)] transition-colors">Documentation</Link></li>
               <li><Link href="/blog" className="hover:text-[var(--text-primary)] transition-colors">Blog</Link></li>
@@ -306,7 +306,7 @@ export default function LandingPage() {
           </div>
           
           <div className="col-span-2 lg:col-span-1">
-            <h4 style={{ fontWeight: 600, marginBottom: 16, fontSize: 15 }}>Legal</h4>
+            <h2 style={{ fontWeight: 600, marginBottom: 16, fontSize: 15 }}>Legal</h2>
             <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: 12, color: "var(--text-secondary)", fontSize: 14 }}>
               <li><Link href="/privacy" className="hover:text-[var(--text-primary)] transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-[var(--text-primary)] transition-colors">Terms of Service</Link></li>
