@@ -76,9 +76,7 @@ export default function PricingPage() {
       <main className="py-12 px-4 md:py-20 md:px-8">
         <div style={{ maxWidth: 1200, margin: "0 auto", paddingBottom: 80 }}>
           <div style={{ textAlign: "center", marginBottom: 80, marginTop: 40 }}>
-            <div className="badge animate-fade-in-up" style={{ marginBottom: 24, padding: "8px 24px", fontSize: 14, fontWeight: 700, letterSpacing: 1, textTransform: "uppercase", background: "rgba(216, 133, 143, 0.1)", color: "var(--accent-pink)", border: "1px solid rgba(216, 133, 143, 0.3)", borderRadius: 100, display: "inline-block" }}>
-              Pricing Plans
-            </div>
+
             <h1 className="animate-fade-in-up" style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: 900, marginBottom: 24, color: "var(--text-primary)" }}>
               Simple, transparent pricing.
             </h1>
