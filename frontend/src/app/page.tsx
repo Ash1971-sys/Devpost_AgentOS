@@ -1,46 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import PublicNavbar from "@/components/PublicNavbar";
 
 export default function LandingPage() {
-  const [showSplash, setShowSplash] = useState(true);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Hardware detection for low-end devices
-      const isLowEnd = 
-        (navigator.deviceMemory && navigator.deviceMemory < 4) || 
-        (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) ||
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
-      
-      if (!hasSeenSplash && !isLowEnd) {
-        sessionStorage.setItem("hasSeenSplash", "true");
-        setTimeout(() => {
-          setShowSplash(false);
-        }, 2500); // Reduced from 4.5s to 2.5s for better perceived performance
-      } else {
-        // Skip splash for returning visitors or low-end devices
-        setShowSplash(false);
-      }
-    }
-  }, []);
-
   return (
     <div className="mesh-gradient" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-      {/* Splash Screen */}
-      {showSplash && (
-        <div className="splash-screen">
-          <h1 className="splash-text">A G E N T O S</h1>
-        </div>
-      )}
-
       <div style={{ 
-        opacity: showSplash ? 0 : 1, 
-        transition: "opacity 0.8s ease-in",
         display: "flex", 
         flexDirection: "column", 
         flex: 1 
