@@ -52,11 +52,13 @@ This document tracks all major features, UI polishing, and fixes applied to the 
     - `frontend/src/app/dashboard/schedules/page.tsx`
 
 ### UI Polishing & Pricing Updates
-- **Lighthouse 100/100 Accessibility Fixes**
+- **Lighthouse 100/100 Accessibility & Performance Fixes**
+  - Configured `browserslist` in `package.json` to only target modern browser versions. This drops all legacy JavaScript polyfills (e.g., `Array.prototype.at`, `Object.fromEntries`), saving ~13.4 KiB in wasted transpilation bytes and satisfying the Lighthouse "Legacy JavaScript" audit.
   - Resolved `Heading elements are not in a sequentially-descending order` by updating the pricing card headings from `<h3>` to `<h2>` and the global footer column headers from `<h4>` to `<h2>`.
   - Resolved `Links do not have a discernible name` by adding descriptive `aria-label`s to the logo link in the public navigation bar and the social media icon links (Twitter/GitHub) in the footer.
   - Resolved `Background and foreground colors do not have a sufficient contrast ratio` by darkening `--text-tertiary` (for the `/mo` span), `--success` (for the green checkmarks), and setting the "MOST POPULAR" badge text to a deep, dark red (`#5c1621`) to guarantee WCAG AA contrast compliance against the pink accent background.
   - *Files touched:* 
+    - `frontend/package.json`
     - `frontend/src/app/globals.css`
     - `frontend/src/components/PublicNavbar.tsx`
     - `frontend/src/app/pricing/page.tsx`
