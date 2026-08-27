@@ -56,7 +56,7 @@ This document tracks all major features, UI polishing, and fixes applied to the 
   - **Eliminated Unused JavaScript:** Removed the `"use client"` directive from the main Landing Page (`app/page.tsx`) and the Pricing Page (`app/pricing/page.tsx`). Extracted the interactive `TiltCard` logic into a dedicated Client Component (`components/TiltCard.tsx`). This converts massive static DOM structures (like the node diagrams, Hero text, and layout SVGs) into pure Server Components, slicing ~48.9 KiB of unused Javascript from the initial client payload and instantly satisfying the Lighthouse audit.
   - **Eliminated Font Swapping Reflow:** Configured Next.js Google Fonts (`next/font`) to use `display: "optional"`. This gives the font a tiny window to load and prevents the browser from swapping fonts late in the render cycle, which completely eliminates the 'Forced Reflow' layout shifts (FOUT) that were costing ~81-104ms on initial load.
   - **Eliminated Render-Blocking CSS:** Enabled experimental `optimizeCss` in `next.config.ts` (and installed `critters`) to extract and inline critical CSS directly into the HTML document. This eliminates the `244e-bwc3p996.css` render-blocking request, severely trims down the critical Network Dependency Tree, and resolves 'Forced Reflow' Layout shifts caused by delayed stylesheet execution.
-  - **Pruned Legacy Polyfills:** Configured `browserslist` in `package.json` to only target modern browser versions. This drops all legacy JavaScript polyfills (e.g., `Array.prototype.at`, `Object.fromEntries`), saving ~13.4 KiB in wasted transpilation bytes and satisfying the Lighthouse "Legacy JavaScript" audit.
+  - **Pruned Legacy Polyfills (For Real):** Updated the `"target"` in `tsconfig.json` from `ES2017` to `ES2022`. The Next.js SWC compiler was automatically transpiling and injecting polyfills (like `Array.prototype.at` and `flatMap`) because the Typescript compiler target was set too low. Bumping the target fully eliminated the remaining 13.4 KiB of Legacy JavaScript from the production chunk.
   - Resolved `Heading elements are not in a sequentially-descending order` by updating the pricing card headings from `<h3>` to `<h2>` and the global footer column headers from `<h4>` to `<h2>`.
   - Resolved `Links do not have a discernible name` by adding descriptive `aria-label`s to the logo link in the public navigation bar and the social media icon links (Twitter/GitHub) in the footer.
   - Resolved `Background and foreground colors do not have a sufficient contrast ratio` by darkening `--text-tertiary` (for the `/mo` span), `--success` (for the green checkmarks), and setting the "MOST POPULAR" badge text to a deep, dark red (`#5c1621`) to guarantee WCAG AA contrast compliance against the pink accent background.
@@ -67,6 +67,7 @@ This document tracks all major features, UI polishing, and fixes applied to the 
     - `frontend/src/app/layout.tsx`
     - `frontend/next.config.ts`
     - `frontend/package.json`
+    - `frontend/tsconfig.json`
     - `frontend/src/app/globals.css`
     - `frontend/src/components/PublicNavbar.tsx`
 - **Pricing Layout & Scrolling Fix**
