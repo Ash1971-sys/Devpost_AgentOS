@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import PublicNavbar from "@/components/PublicNavbar";
 
 export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -32,32 +33,9 @@ export default function FAQPage() {
   return (
     <div className="mesh-gradient" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       {/* Navbar (Minimal) */}
-      <header style={{
-        padding: "20px 40px", display: "flex", justifyContent: "space-between", alignItems: "center",
-        borderBottom: "1px solid var(--border-primary)", backdropFilter: "blur(12px)",
-        position: "sticky", top: 0, zIndex: 100
-      }}>
-        <Link href="/" style={{ textDecoration: "none" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div style={{
-              width: 32, height: 32, borderRadius: "8px",
-              background: "linear-gradient(135deg, var(--accent), var(--accent-pink))",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: 16, fontWeight: 800, color: "white"
-            }}>A</div>
-            <span style={{ fontSize: 22, fontWeight: 800, letterSpacing: "-0.5px", color: "var(--text-primary)" }}>
-              AgentOS
-            </span>
-          </div>
-        </Link>
-        <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
-          <Link href="/pricing" className="hover:text-primary transition-colors" style={{ color: "var(--text-secondary)", fontWeight: 600 }}>Pricing</Link>
-          <Link href="/login" className="btn btn-ghost">Sign In</Link>
-          <Link href="/get-started" className="btn btn-primary">Get Started</Link>
-        </div>
-      </header>
+      <PublicNavbar />
 
-      <main style={{ flex: 1, padding: "80px 20px" }}>
+      <main className="flex-1 py-12 px-4 md:py-20 md:px-8" style={{ flex: 1 }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 60 }}>
             <h1 className="animate-fade-in-up" style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: 900, marginBottom: 24, color: "var(--text-primary)" }}>

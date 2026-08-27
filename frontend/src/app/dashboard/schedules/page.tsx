@@ -38,7 +38,7 @@ export default function SchedulesPage() {
 
   const handleToggle = async (id: string) => {
     try {
-      const res = await toggleSchedulePause(id);
+      const res: any = await toggleSchedulePause(id);
       setSchedules(prev => prev.map(s => s.schedule_id === id ? { ...s, is_enabled: res.is_enabled } : s));
     } catch (err: any) {
       alert(err.message || "Failed to toggle schedule");

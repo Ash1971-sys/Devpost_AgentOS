@@ -1,40 +1,11 @@
 import Link from "next/link";
+import PublicNavbar from "@/components/PublicNavbar";
 
 export default function AboutPage() {
   return (
     <div className="mesh-gradient" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       {/* Navbar */}
-      <header className="navbar-public" style={{
-        padding: "20px 40px", display: "flex", justifyContent: "space-between", alignItems: "center",
-        borderBottom: "1px solid var(--border-primary)", backdropFilter: "blur(12px)"
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 12 }}>
-            <div style={{
-              width: 32, height: 32, borderRadius: "var(--radius-md)",
-              background: "linear-gradient(135deg, var(--accent), #8b5cf6)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: 16, fontWeight: 800, color: "white",
-            }}>
-              A
-            </div>
-            <span style={{ fontSize: 20, fontWeight: 700 }} className="gradient-text">
-              AgentOS
-            </span>
-          </Link>
-        </div>
-        <div className="navbar-public-links hide-scrollbar" style={{ display: "flex", gap: 32, alignItems: "center" }}>
-          <nav style={{ display: "flex", gap: 24, fontSize: 14, fontWeight: 500, color: "var(--text-secondary)" }}>
-            <Link href="/about" className="hover:text-primary transition-colors whitespace-nowrap" style={{ color: "var(--text-primary)" }}>About Us</Link>
-            <Link href="/features" className="hover:text-primary transition-colors whitespace-nowrap">Features</Link>
-            <Link href="/contact" className="hover:text-primary transition-colors whitespace-nowrap">Contact Us</Link>
-          </nav>
-          <div style={{ display: "flex", gap: 16 }}>
-            <Link href="/login" className="btn btn-ghost whitespace-nowrap">Sign In</Link>
-            <Link href="/get-started" className="btn btn-primary whitespace-nowrap">Get Started</Link>
-          </div>
-        </div>
-      </header>
+      <PublicNavbar />
 
       <main className="px-4 py-12 md:py-20" style={{ flex: 1, maxWidth: 800, margin: "0 auto", textAlign: "left" }}>
         <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: 800, marginBottom: 24 }} className="gradient-text">

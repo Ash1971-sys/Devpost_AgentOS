@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import PublicNavbar from "@/components/PublicNavbar";
 
 export default function LandingPage() {
-  const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
@@ -24,23 +23,6 @@ export default function LandingPage() {
     }
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (typeof window !== "undefined") {
-        // Only hide if we scroll down past 100px
-        if (window.scrollY > lastScrollY && window.scrollY > 100) {
-          setShowNavbar(false);
-        } else {
-          setShowNavbar(true);
-        }
-        setLastScrollY(window.scrollY);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
   return (
     <div className="mesh-gradient" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       {/* Splash Screen */}
@@ -57,53 +39,19 @@ export default function LandingPage() {
         flexDirection: "column", 
         flex: 1 
       }}>
-        {/* Navbar */}
-        <header className="navbar-public" style={{
-        padding: "20px 40px", display: "flex", justifyContent: "space-between", alignItems: "center",
-        borderBottom: "1px solid var(--border-primary)", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)",
-        position: "sticky", top: 0, zIndex: 100,
-        transform: showNavbar ? "translateY(0)" : "translateY(-100%)",
-        transition: "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <div style={{
-            width: 32, height: 32, borderRadius: "8px",
-            background: "linear-gradient(135deg, var(--accent), var(--accent-pink))",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 16, fontWeight: 800, color: "white",
-            boxShadow: "0 0 15px rgba(236, 72, 153, 0.4)"
-          }}>
-            A
-          </div>
-          <span style={{ fontSize: 22, fontWeight: 800, letterSpacing: "-0.5px" }} className="gradient-text">
-            AgentOS
-          </span>
-        </div>
-        <div className="navbar-public-links hide-scrollbar" style={{ display: "flex", gap: 32, alignItems: "center" }}>
-          <nav style={{ display: "flex", gap: 32, fontSize: 14, fontWeight: 600, color: "var(--text-secondary)" }}>
-            <Link href="/about" className="hover:text-primary transition-colors whitespace-nowrap" style={{ color: "var(--text-primary)" }}>About Us</Link>
-            <Link href="/features" className="hover:text-primary transition-colors whitespace-nowrap">Features</Link>
-            <Link href="/integrations" className="hover:text-primary transition-colors whitespace-nowrap">Marketplace</Link>
-            <Link href="/contact" className="hover:text-primary transition-colors whitespace-nowrap">Contact Us</Link>
-          </nav>
-          <div style={{ display: "flex", gap: 16 }}>
-            <Link href="/login" className="btn btn-ghost whitespace-nowrap">Sign In</Link>
-            <Link href="/get-started" className="btn btn-primary whitespace-nowrap">Get Started</Link>
-          </div>
-        </div>
-      </header>
+        <PublicNavbar />
 
-      {/* Hero Section */}
+        {/* Hero Section */}
       <main className="px-4 py-12 md:py-24" style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", position: "relative" }}>
         
 
 
         <div style={{ zIndex: 10 }}>
           <h1 className="animate-fade-in-up" style={{
-            fontSize: "clamp(48px, 8vw, 84px)", fontWeight: 900, lineHeight: 1.05,
-            letterSpacing: "-0.04em", marginBottom: 24, marginTop: 60, maxWidth: 1000
+            fontSize: "clamp(36px, 8vw, 84px)", fontWeight: 900, lineHeight: 1.05,
+            letterSpacing: "-0.04em", marginBottom: 24, marginTop: 40, maxWidth: 1000
           }}>
-            The autonomous workspace that <br/>
+            The autonomous workspace that <br className="hidden md:block" />
             <span className="gradient-text">builds its own tools.</span>
           </h1>
           <p className="animate-fade-in-up" style={{
