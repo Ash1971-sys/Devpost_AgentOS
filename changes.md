@@ -55,3 +55,10 @@ This document outlines the recent architectural, semantic, and performance optim
 **Changes Done:**
 - **Dev Server Bypass:** Rewrote the `npm run dev` script to instantly execute `npm run build && next start`. This completely bypasses the massive 3MB unminified Next.js development chunks, allowing local Lighthouse testing against heavily optimized 130KB production chunks.
 - **Polyfill Stripping:** Added a custom `postbuild` Node.js script to aggressively strip legacy browser polyfills from generated static HTML pages.
+
+## 7. Execution Optimization (Layout Thrashing)
+**Files Modified:**
+- `frontend/src/components/TiltCard.tsx`
+
+**Changes Done:**
+- **Prevent Forced Reflow:** Resolved a critical Lighthouse performance warning caused by synchronous DOM reads. The `TiltCard` was previously querying `getBoundingClientRect()` on every single mouse movement frame while simultaneously updating CSS state, causing continuous forced reflows. We refactored the component to cache the DOM read once on `onMouseEnter`, making the 3D tilt effect buttery smooth and eliminating browser layout thrashing entirely.
