@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   compress: true, // Enable gzip compression
   experimental: {
     optimizePackageImports: ["lucide-react", "radash", "@xyflow/react"],
+    optimizeCss: true,
   },
   async headers() {
     return [
