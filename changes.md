@@ -93,3 +93,5 @@ This document tracks all major features, UI polishing, and fixes applied to the 
 - **Splash Screen (Performance & UX)**: Implemented smart hardware detection (\
 avigator.deviceMemory\ & \
 avigator.hardwareConcurrency\) to automatically skip the opening splash screen animation on low-end devices, guaranteeing immediate access and zero lag. For high-end devices, completely revamped the animation from a laggy letter-spacing animation to a buttery-smooth, hardware-accelerated cinematic blur and scale effect, while reducing the duration from 4.5s to 2.5s for a snappier experience.
+
+- **JavaScript Chunk Optimization**: Analyzed the bundle size using Lighthouse Treemap and successfully isolated the heavy Google Identity OAuth script (91.5 KiB) from the root layout. By dynamically loading the \GoogleOAuthProvider\ only on the \/login\ and \/signup\ pages, the initial page load for the landing page is significantly lighter and faster.
