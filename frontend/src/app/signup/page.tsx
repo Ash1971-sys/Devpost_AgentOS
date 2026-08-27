@@ -4,7 +4,7 @@ import { useState, FormEvent } from "react";
 import { useAuth } from "@/lib/auth-context";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useGoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 
 export default function SignupPage() {
   const { signup, loginWithGoogle, isAuthenticated, loginAsGuest } = useAuth();
@@ -50,7 +50,8 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="mesh-gradient" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "dummy-client-id"}>
+      <div className="mesh-gradient" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div className="animate-fade-in-up" style={{ width: "100%", maxWidth: 440, padding: "0 20px" }}>
         
         {/* Logo */}
@@ -186,6 +187,7 @@ export default function SignupPage() {
           </Link>
         </p>
       </div>
-    </div>
+      </div>
+    </GoogleOAuthProvider>
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./globals.css";
 import { AuthProvider } from "@/lib/auth-context";
 
@@ -21,11 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>
-        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || "dummy-client-id"}>
-          <AuthProvider>
-            {children}
-          </AuthProvider>
-        </GoogleOAuthProvider>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
