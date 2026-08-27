@@ -95,3 +95,8 @@ avigator.deviceMemory\ & \
 avigator.hardwareConcurrency\) to automatically skip the opening splash screen animation on low-end devices, guaranteeing immediate access and zero lag. For high-end devices, completely revamped the animation from a laggy letter-spacing animation to a buttery-smooth, hardware-accelerated cinematic blur and scale effect, while reducing the duration from 4.5s to 2.5s for a snappier experience.
 
 - **JavaScript Chunk Optimization**: Analyzed the bundle size using Lighthouse Treemap and successfully isolated the heavy Google Identity OAuth script (91.5 KiB) from the root layout. By dynamically loading the \GoogleOAuthProvider\ only on the \/login\ and \/signup\ pages, the initial page load for the landing page is significantly lighter and faster.
+
+- **Advanced SEO**: Upgraded \layout.tsx\ with deep OpenGraph and Twitter card metadata for comprehensive SEO optimization.
+- **Cache & Memory Management**: Implemented \
+ext.config.ts\ compiler optimizations including \optimizePackageImports\ (reducing memory overhead of large libraries), gzip \compress: true\, and hard \Cache-Control\ immutable headers for static assets to offload memory pressure.
+- **Radash Integration**: Added \adash\ as requested for modern, ultra-lightweight utility functions and optimized execution speed.
