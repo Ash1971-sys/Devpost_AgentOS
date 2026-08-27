@@ -89,3 +89,7 @@ This document tracks all major features, UI polishing, and fixes applied to the 
 
 - **Performance (Lighthouse)**: Removed redundant Google Fonts @import from globals.css. The app already uses next/font/google which optimally hosts fonts locally. This eliminates a massive render-blocking request chain and drastically improves First Contentful Paint (FCP) and Largest Contentful Paint (LCP).
 - **Note on JS Execution Time**: Reminded developers that dev mode (npm run dev) ships unminified code, Webpack HMR, and huge source maps, which falsely inflates JavaScript Execution Time and Main-Thread Work in Lighthouse tests. Accurate tests must be run using a production build (npm run build && npm start).
+
+- **Splash Screen (Performance & UX)**: Implemented smart hardware detection (\
+avigator.deviceMemory\ & \
+avigator.hardwareConcurrency\) to automatically skip the opening splash screen animation on low-end devices, guaranteeing immediate access and zero lag. For high-end devices, completely revamped the animation from a laggy letter-spacing animation to a buttery-smooth, hardware-accelerated cinematic blur and scale effect, while reducing the duration from 4.5s to 2.5s for a snappier experience.
