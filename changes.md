@@ -28,6 +28,7 @@ This document tracks all major features, UI polishing, and fixes applied to the 
 - **Mobile Layout & Diagram Scaling**
   - Re-introduced the sleek mobile hamburger menu for vertical navigation to fix horizontal overflow.
   - Fixed mobile header layout by implementing responsive clamp padding, removing the "big gap" and ensuring elements fit perfectly on small screens.
+  - Reduced the large empty space above the hero text on mobile by optimizing margin and padding (`pt-8` instead of `py-12`, removing static `marginTop: 40`).
   - Resolved "choppy button" rendering by replacing Tailwind `space-y` with strict flexbox `gap` and height constraints for buttery-smooth hamburger animations.
   - Applied CSS transform scaling to the hero section's terminal diagram, dynamically zooming it out on mobile devices to ensure the entire workflow node UI remains perfectly visible without horizontal clipping, and without disturbing the laptop view.
   - Redesigned the footer layout using a responsive CSS Grid (`grid-cols-2`) on mobile. This organizes the footer links into clean, side-by-side columns, significantly reducing the "clampy" vertical length and giving it a premium, corporate feel.

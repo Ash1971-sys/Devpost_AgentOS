@@ -42,14 +42,12 @@ export default function LandingPage() {
         <PublicNavbar />
 
         {/* Hero Section */}
-      <main className="px-4 py-12 md:py-24" style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", position: "relative" }}>
+      <main className="px-4 pt-8 pb-12 md:py-24 justify-start md:justify-center" style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", position: "relative" }}>
         
-
-
-        <div style={{ zIndex: 10 }}>
-          <h1 className="animate-fade-in-up" style={{
+        <div style={{ zIndex: 10, width: "100%" }}>
+          <h1 className="animate-fade-in-up mt-4 md:mt-10" style={{
             fontSize: "clamp(36px, 8vw, 84px)", fontWeight: 900, lineHeight: 1.05,
-            letterSpacing: "-0.04em", marginBottom: 24, marginTop: 40, maxWidth: 1000
+            letterSpacing: "-0.04em", marginBottom: 24, maxWidth: 1000, marginInline: "auto"
           }}>
             The autonomous workspace that <br className="hidden md:block" />
             <span className="gradient-text">builds its own tools.</span>
