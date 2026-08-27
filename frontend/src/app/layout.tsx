@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import { AuthProvider } from "@/lib/auth-context";
+import fs from "fs";
+import path from "path";
 
 const inter = Inter({ subsets: ["latin"], display: "optional" });
+
+// Load compiled CSS for inline injection
+const cssPath = path.join(process.cwd(), "src", "app", "built.css");
+const inlineCss = fs.existsSync(cssPath) ? fs.readFileSync(cssPath, "utf8") : "";
 
 export const metadata: Metadata = {
   title: "AgentOS — The Autonomous AI Workspace",
@@ -30,6 +35,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        {inlineCss && <style dangerouslySetInnerHTML={{ __html: inlineCss }} />}
+      </head>
       <body className={inter.className}>
         <AuthProvider>
           {children}
