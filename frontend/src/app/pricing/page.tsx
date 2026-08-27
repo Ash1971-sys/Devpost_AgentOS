@@ -103,7 +103,7 @@ export default function PricingPage() {
             </TiltCard>
 
             {/* Pro Plan */}
-            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, border: "2px solid var(--accent)", position: "relative", animationDelay: "0.3s", transform: "scale(1.05)", overflow: "visible", display: "flex", flexDirection: "column" }}>
+            <TiltCard className="glass-card pricing-card animate-fade-in-up" style={{ padding: 40, border: "2px solid var(--accent)", position: "relative", animationDelay: "0.3s", boxShadow: "0 20px 40px rgba(216, 133, 143, 0.15)", overflow: "visible", display: "flex", flexDirection: "column" }}>
               <div style={{ position: "absolute", top: -14, left: "50%", transform: "translateX(-50%)", background: "var(--accent)", color: "white", padding: "4px 16px", borderRadius: 100, fontSize: 12, fontWeight: 700, letterSpacing: 1 }}>
                 MOST POPULAR
               </div>
