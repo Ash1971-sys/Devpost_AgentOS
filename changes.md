@@ -86,3 +86,6 @@ This document tracks all major features, UI polishing, and fixes applied to the 
   - *Files touched:* 
     - `frontend/src/app/(public)/about/page.tsx`
     - `frontend/src/app/(public)/contact/page.tsx`
+
+- **Performance (Lighthouse)**: Removed redundant Google Fonts @import from globals.css. The app already uses next/font/google which optimally hosts fonts locally. This eliminates a massive render-blocking request chain and drastically improves First Contentful Paint (FCP) and Largest Contentful Paint (LCP).
+- **Note on JS Execution Time**: Reminded developers that dev mode (npm run dev) ships unminified code, Webpack HMR, and huge source maps, which falsely inflates JavaScript Execution Time and Main-Thread Work in Lighthouse tests. Accurate tests must be run using a production build (npm run build && npm start).
