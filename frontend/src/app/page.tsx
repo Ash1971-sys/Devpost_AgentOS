@@ -42,7 +42,7 @@ export default function LandingPage() {
         <PublicNavbar />
 
         {/* Hero Section */}
-      <main className="px-4 pt-8 pb-12 md:py-24 justify-start md:justify-center" style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", position: "relative" }}>
+      <main className="px-4 pb-12 md:py-24" style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start", paddingTop: 32, textAlign: "center", position: "relative" }}>
         
         <div style={{ zIndex: 10, width: "100%" }}>
           <h1 className="animate-fade-in-up mt-4 md:mt-10" style={{
