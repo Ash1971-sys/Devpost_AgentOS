@@ -100,3 +100,5 @@ avigator.hardwareConcurrency\) to automatically skip the opening splash screen a
 - **Cache & Memory Management**: Implemented \
 ext.config.ts\ compiler optimizations including \optimizePackageImports\ (reducing memory overhead of large libraries), gzip \compress: true\, and hard \Cache-Control\ immutable headers for static assets to offload memory pressure.
 - **Radash Integration**: Added \adash\ as requested for modern, ultra-lightweight utility functions and optimized execution speed.
+
+- **Instant Load Optimization**: Completely removed the 2.5-second artificial timeout and splash screen UI from \page.tsx\. The application now renders immediately with 0ms of artificial wait time, dramatically improving perceived load speeds for all users.
