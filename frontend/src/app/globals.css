@@ -189,6 +189,49 @@ body {
   border-radius: 12px;
 }
 
+/* ── Diagram Scaling ─────────────────────────────────────────── */
+.diagram-zoom-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  overflow: hidden;
+  position: relative;
+  height: 450px;
+  margin: 0 auto;
+}
+.diagram-zoom {
+  width: 1000px;
+  height: 450px;
+  transform-origin: top center;
+  position: absolute;
+  left: 50%;
+  margin-left: -500px;
+  transform: scale(1);
+}
+@media (max-width: 1024px) {
+  .diagram-zoom-wrapper { height: 405px; }
+  .diagram-zoom { transform: scale(0.9); }
+}
+@media (max-width: 900px) {
+  .diagram-zoom-wrapper { height: 360px; }
+  .diagram-zoom { transform: scale(0.8); }
+}
+@media (max-width: 768px) {
+  .diagram-zoom-wrapper { height: 315px; }
+  .diagram-zoom { transform: scale(0.7); }
+}
+@media (max-width: 600px) {
+  .diagram-zoom-wrapper { height: 247px; }
+  .diagram-zoom { transform: scale(0.55); }
+}
+@media (max-width: 480px) {
+  .diagram-zoom-wrapper { height: 160px; }
+  .diagram-zoom { transform: scale(0.35); }
+}
+@media (max-width: 380px) {
+  .diagram-zoom-wrapper { height: 135px; }
+  .diagram-zoom { transform: scale(0.3); }
+}
+
 /* ── Typography & Gradients ──────────────────────────────────── */
 .gradient-text {
   background: linear-gradient(135deg, var(--accent), var(--accent-pink), var(--accent-purple));

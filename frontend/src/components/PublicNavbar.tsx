@@ -41,7 +41,7 @@ export default function PublicNavbar() {
   return (
     <>
       <header className="navbar-public" style={{
-        padding: "20px 40px",
+        padding: "20px clamp(16px, 5vw, 40px)",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -72,8 +72,8 @@ export default function PublicNavbar() {
           </div>
         </Link>
 
-        {/* Desktop & Mobile Navigation */}
-        <div className="navbar-public-links hide-scrollbar" style={{ display: "flex", gap: 32, alignItems: "center", overflowX: "auto" }}>
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-8">
           <nav style={{ display: "flex", gap: 32, fontSize: 14, fontWeight: 600, color: "var(--text-secondary)" }}>
             {navLinks.map((link) => (
               <Link 
@@ -91,7 +91,51 @@ export default function PublicNavbar() {
             <Link href="/get-started" className="btn btn-primary whitespace-nowrap">Get Started</Link>
           </div>
         </div>
+
+        {/* Mobile Hamburger Toggle */}
+        <button 
+          className="lg:hidden flex flex-col justify-center items-center w-10 h-10 focus:outline-none z-[110]"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+          style={{ gap: 6 }}
+        >
+          <span style={{ width: 24, height: 2, background: "var(--text-primary)", borderRadius: 2, transition: "transform 0.3s ease-in-out, opacity 0.3s ease-in-out", transform: isMobileMenuOpen ? 'translateY(8px) rotate(45deg)' : 'none' }}></span>
+          <span style={{ width: 24, height: 2, background: "var(--text-primary)", borderRadius: 2, transition: "opacity 0.3s ease-in-out", opacity: isMobileMenuOpen ? 0 : 1 }}></span>
+          <span style={{ width: 24, height: 2, background: "var(--text-primary)", borderRadius: 2, transition: "transform 0.3s ease-in-out", transform: isMobileMenuOpen ? 'translateY(-8px) rotate(-45deg)' : 'none' }}></span>
+        </button>
       </header>
+
+      {/* Mobile Menu Dropdown */}
+      <div 
+        className={`lg:hidden fixed inset-0 top-[73px] z-[90] glass-card transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-4'}`}
+        style={{ 
+          background: "var(--bg-card)",
+          backdropFilter: "blur(40px)",
+          border: "none",
+          borderTop: "1px solid var(--border-primary)",
+          borderRadius: "0 0 16px 16px",
+          height: "calc(100vh - 73px)",
+          overflowY: "auto",
+          padding: "24px"
+        }}
+      >
+        <nav style={{ display: "flex", flexDirection: "column", gap: 24, fontSize: 18, fontWeight: 600 }}>
+          {navLinks.map((link) => (
+            <Link 
+              key={link.href} 
+              href={link.href} 
+              className="transition-colors border-b border-[var(--border-primary)] pb-4"
+              style={{ color: pathname === link.href ? "var(--text-primary)" : "var(--text-secondary)" }}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 16 }}>
+            <Link href="/login" className="btn btn-ghost" style={{ justifyContent: "center" }}>Sign In</Link>
+            <Link href="/get-started" className="btn btn-primary" style={{ justifyContent: "center" }}>Get Started for Free</Link>
+          </div>
+        </nav>
+      </div>
     </>
   );
 }
