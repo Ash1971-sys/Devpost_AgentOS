@@ -8,16 +8,22 @@ export default function LandingPage() {
   const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
-    // Check if this is the first visit in this session
     if (typeof window !== "undefined") {
+      // Hardware detection for low-end devices
+      const isLowEnd = 
+        (navigator.deviceMemory && navigator.deviceMemory < 4) || 
+        (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
       const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
-      if (!hasSeenSplash) {
+      
+      if (!hasSeenSplash && !isLowEnd) {
         sessionStorage.setItem("hasSeenSplash", "true");
         setTimeout(() => {
           setShowSplash(false);
-        }, 4500);
+        }, 2500); // Reduced from 4.5s to 2.5s for better perceived performance
       } else {
-        // Skip splash for returning visitors
+        // Skip splash for returning visitors or low-end devices
         setShowSplash(false);
       }
     }

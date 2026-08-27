@@ -301,15 +301,23 @@ body {
 @keyframes splashText {
   0% { 
     opacity: 0; 
-    transform: scale(6) translateZ(0); 
-  }
-  40% { 
-    opacity: 1; 
     transform: scale(1.5) translateZ(0); 
+    filter: blur(16px);
+  }
+  30% { 
+    opacity: 1; 
+    transform: scale(1) translateZ(0); 
+    filter: blur(0px);
+  }
+  85% { 
+    opacity: 1; 
+    transform: scale(0.96) translateZ(0); 
+    filter: blur(0px);
   }
   100% { 
     opacity: 0; 
-    transform: scale(0.05) translateZ(0); 
+    transform: scale(0.9) translateZ(0); 
+    filter: blur(12px);
   }
 }
 
@@ -329,9 +337,9 @@ body {
   font-weight: 800;
   color: var(--text-primary);
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  will-change: transform, opacity;
-  animation: splashText 4.5s ease-in-out forwards;
+  letter-spacing: 0.15em;
+  will-change: transform, opacity, filter;
+  animation: splashText 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 @keyframes marquee {
