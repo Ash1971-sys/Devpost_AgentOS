@@ -40,7 +40,6 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="icon" type="image/png" href="/icon.png" />
         {inlineCss && <style dangerouslySetInnerHTML={{ __html: inlineCss }} />}
       </head>
       <body className="font-sans">
