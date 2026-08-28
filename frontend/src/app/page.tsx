@@ -1,6 +1,6 @@
-
 import Link from "next/link";
 import PublicNavbar from "@/components/PublicNavbar";
+import { DiagramScaler } from "@/components/DiagramScaler";
 
 export default function LandingPage() {
   return (
@@ -35,9 +35,9 @@ export default function LandingPage() {
         </div>
 
         {/* Animated Node Demo */}
-        <div className="diagram-zoom-wrapper" style={{ marginTop: 80, zIndex: 10 }}>
-          <div id="demo" className="diagram-zoom" style={{ background: "var(--bg-secondary)", borderRadius: 16, border: "1px solid var(--border-primary)", boxShadow: "var(--shadow-lg)", overflow: "hidden" }}>
-            <div style={{ width: 1000, height: "100%", position: "relative" }}>
+        <div style={{ marginTop: 80, zIndex: 10 }}>
+          <DiagramScaler>
+            <div id="demo" style={{ background: "var(--bg-secondary)", borderRadius: 16, border: "1px solid var(--border-primary)", boxShadow: "var(--shadow-lg)", overflow: "hidden", width: "100%", height: "100%", position: "relative" }}>
           {/* Header */}
           <div style={{
             height: 48, borderBottom: "1px solid var(--border-primary)",
@@ -69,7 +69,7 @@ export default function LandingPage() {
           <div style={{ position: "absolute", top: 48, left: 0, width: "100%", height: "calc(100% - 48px)" }}>
             
             {/* Trigger Node */}
-            <div className="node-card animate-float" style={{ position: "absolute", left: 40, top: 120, width: 170 }}>
+            <div className="node-card" style={{ position: "absolute", left: 40, top: 120, width: 170 }}>
               <div style={{ fontSize: 24 }}>⚡</div>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 700 }}>User Intent</div>
@@ -79,7 +79,7 @@ export default function LandingPage() {
             </div>
 
             {/* MCP Factory Node */}
-            <div className="node-card animate-float" style={{ position: "absolute", left: 460, top: 70, width: 220, animationDelay: "1s" }}>
+            <div className="node-card" style={{ position: "absolute", left: 460, top: 70, width: 220, animationDelay: "1s" }}>
               <div className="node-port left"></div>
               <div style={{ fontSize: 24 }}>🛠️</div>
               <div>
@@ -90,7 +90,7 @@ export default function LandingPage() {
             </div>
 
             {/* Web Search Node */}
-            <div className="node-card animate-float" style={{ position: "absolute", left: 460, top: 220, width: 220, animationDelay: "2s", opacity: 0.7 }}>
+            <div className="node-card" style={{ position: "absolute", left: 460, top: 220, width: 220, animationDelay: "2s", opacity: 0.7 }}>
               <div className="node-port left"></div>
               <div style={{ fontSize: 24 }}>🌐</div>
               <div>
@@ -100,7 +100,7 @@ export default function LandingPage() {
             </div>
 
             {/* Execution Node */}
-            <div className="node-card animate-float" style={{ position: "absolute", left: 750, top: 120, width: 200, animationDelay: "1.5s" }}>
+            <div className="node-card" style={{ position: "absolute", left: 750, top: 120, width: 200, animationDelay: "1.5s" }}>
               <div className="node-port left"></div>
               <div style={{ fontSize: 24 }}>✅</div>
               <div>
@@ -111,7 +111,7 @@ export default function LandingPage() {
 
           </div>
           </div>
-          </div>
+          </DiagramScaler>
         </div>
 
 
