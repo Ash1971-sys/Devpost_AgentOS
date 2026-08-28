@@ -34,8 +34,8 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* Animated Node Demo - Desktop */}
-        <div className="hidden md:block diagram-zoom-wrapper animate-fade-in-up" style={{ marginTop: 80, animationDelay: "0.3s", zIndex: 10 }}>
+        {/* Animated Node Demo */}
+        <div className="diagram-zoom-wrapper animate-fade-in-up" style={{ marginTop: 80, animationDelay: "0.3s", zIndex: 10 }}>
           <div id="demo" className="diagram-zoom glass-card" style={{ background: "var(--bg-secondary)", borderRadius: 16 }}>
             <div style={{ width: 1000, height: "100%", position: "relative" }}>
           {/* Header */}
@@ -114,58 +114,7 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* Animated Node Demo - Mobile Stack */}
-        <div className="md:hidden flex flex-col animate-fade-in-up glass-card mx-auto w-full max-w-sm text-left" style={{ marginTop: 40, animationDelay: "0.3s", zIndex: 10, background: "var(--bg-secondary)", borderRadius: 16, padding: "16px" }}>
-          {/* Header */}
-          <div style={{
-            display: "flex", alignItems: "center", gap: 8, marginBottom: 24, paddingBottom: 16, borderBottom: "1px solid var(--border-primary)"
-          }}>
-            <div style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--error)" }} />
-            <div style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--warning)" }} />
-            <div style={{ width: 10, height: 10, borderRadius: "50%", background: "var(--success)" }} />
-            <span style={{ marginLeft: 8, fontSize: 12, color: "var(--text-tertiary)", fontFamily: "var(--font-mono)" }}>workflow-active</span>
-          </div>
 
-          <div className="flex flex-col items-center gap-2">
-            <div className="node-card w-full" style={{ padding: "12px 16px" }}>
-              <div style={{ fontSize: 24 }}>⚡</div>
-              <div className="flex-1">
-                <div style={{ fontSize: 14, fontWeight: 700 }}>User Intent</div>
-                <div style={{ fontSize: 11, color: "var(--text-tertiary)" }}>Trigger</div>
-              </div>
-            </div>
-            
-            <div style={{ width: 2, height: 20, background: "var(--accent-pink)", opacity: 0.5 }} />
-
-            <div className="node-card w-full" style={{ padding: "12px 16px" }}>
-              <div style={{ fontSize: 24 }}>🛠️</div>
-              <div className="flex-1">
-                <div style={{ fontSize: 14, fontWeight: 700 }}>MCP Factory</div>
-                <div style={{ fontSize: 11, color: "var(--accent-pink)", fontWeight: 600 }}>Building Notion API...</div>
-              </div>
-            </div>
-
-            <div style={{ width: 2, height: 20, background: "var(--accent-purple)", opacity: 0.5 }} />
-
-            <div className="node-card w-full" style={{ padding: "12px 16px" }}>
-              <div style={{ fontSize: 24 }}>🌐</div>
-              <div className="flex-1">
-                <div style={{ fontSize: 14, fontWeight: 700 }}>Web Search</div>
-                <div style={{ fontSize: 11, color: "var(--text-tertiary)" }}>Completed</div>
-              </div>
-            </div>
-
-            <div style={{ width: 2, height: 20, background: "var(--accent)", opacity: 0.5 }} />
-
-            <div className="node-card w-full" style={{ padding: "12px 16px" }}>
-              <div style={{ fontSize: 24 }}>✅</div>
-              <div className="flex-1">
-                <div style={{ fontSize: 14, fontWeight: 700 }}>Notion Sync</div>
-                <div style={{ fontSize: 11, color: "var(--success)" }}>Data inserted</div>
-              </div>
-            </div>
-          </div>
-        </div>
       </main>
 
       {/* App Integrations Marquee Showcase */}

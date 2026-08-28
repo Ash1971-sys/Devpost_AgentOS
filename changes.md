@@ -71,7 +71,6 @@ This document outlines the recent architectural, semantic, and performance optim
 - `frontend/src/app/globals.css`
 
 **Changes Done:**
-- **Hero Diagram Mobile Reflow:** Replaced the rigid `transform: scale()` desktop diagram with a completely responsive, native Flexbox stacked column layout on mobile screens, vastly improving readability and tap target accessibility.
 - **Header Alignment & Overlap:** Resolved Flexbox layout shrinking conflicts in the dashboard Topbar, preventing the title from overlapping with the avatar/notification icons. Added dynamic mobile heights (`65px`) to the `PublicNavbar` to perfectly align the mobile dropdown menu with the header and eliminate awkward gaps.
 - **Scroll Trap Prevention:** Added strict `document.body.style.overflow = "hidden"` locks to the mobile menu. This ensures the background page cannot trigger the auto-hide header logic while the user is actively navigating the menu overlay.
 - **Scroll Hook Performance:** Refactored the navbar scroll listener to track direction using `React.useRef` instead of `useState` or local closures, ensuring the scroll-direction logic persists cleanly across renders without unnecessarily re-rendering the component on every scroll tick.
