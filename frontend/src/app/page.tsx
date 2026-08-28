@@ -16,33 +16,33 @@ export default function LandingPage() {
       <main className="px-4 pb-12 md:py-24" style={{ paddingTop: 32, textAlign: "center", position: "relative" }}>
         
         <div style={{ zIndex: 10, width: "100%" }}>
-          <h1 className="animate-fade-in-up mt-4 md:mt-10" style={{
+          <h1 className="mt-4 md:mt-10" style={{
             fontSize: "clamp(36px, 8vw, 84px)", fontWeight: 900, lineHeight: 1.05,
             letterSpacing: "-0.04em", marginBottom: 24, maxWidth: 1000, marginInline: "auto"
           }}>
             The autonomous workspace that <br className="hidden md:block" />
             <span className="gradient-text">builds its own tools.</span>
           </h1>
-          <p className="animate-fade-in-up" style={{
+          <p style={{
             fontSize: "clamp(18px, 2.5vw, 24px)", color: "var(--text-secondary)",
             marginBottom: 48, maxWidth: 700, animationDelay: "0.1s", margin: "0 auto 48px", fontWeight: 400
           }}>
             Give AgentOS a goal. It plans the workflow, executes the tasks, and if an integration is missing, it dynamically generates and deploys it.
           </p>
-          <div className="animate-fade-in-up" style={{ display: "flex", gap: 16, justifyContent: "center", animationDelay: "0.2s" }}>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center" }}>
             <Link href="/get-started" className="btn btn-primary btn-lg">Start Building Free</Link>
           </div>
         </div>
 
         {/* Animated Node Demo */}
-        <div className="diagram-zoom-wrapper animate-fade-in-up" style={{ marginTop: 80, animationDelay: "0.3s", zIndex: 10 }}>
-          <div id="demo" className="diagram-zoom glass-card" style={{ background: "var(--bg-secondary)", borderRadius: 16 }}>
+        <div className="diagram-zoom-wrapper" style={{ marginTop: 80, zIndex: 10 }}>
+          <div id="demo" className="diagram-zoom" style={{ background: "var(--bg-secondary)", borderRadius: 16, border: "1px solid var(--border-primary)", boxShadow: "var(--shadow-lg)", overflow: "hidden" }}>
             <div style={{ width: 1000, height: "100%", position: "relative" }}>
           {/* Header */}
           <div style={{
             height: 48, borderBottom: "1px solid var(--border-primary)",
             display: "flex", alignItems: "center", padding: "0 16px", gap: 8,
-            background: "rgba(0,0,0,0.2)"
+            background: "rgba(0,0,0,0.05)"
           }}>
             <div style={{ width: 12, height: 12, borderRadius: "50%", background: "var(--error)" }} />
             <div style={{ width: 12, height: 12, borderRadius: "50%", background: "var(--warning)" }} />

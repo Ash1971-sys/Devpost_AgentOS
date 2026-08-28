@@ -112,7 +112,6 @@ body {
 .node-card:hover {
   border-color: var(--accent-pink);
   box-shadow: 0 0 20px rgba(236, 72, 153, 0.25);
-  transform: scale(1.02);
 }
 
 /* Connection points for nodes */
@@ -274,8 +273,7 @@ body {
 }
 
 .animate-fade-in-up {
-  opacity: 0;
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 1;
 }
 
 .animate-float {
