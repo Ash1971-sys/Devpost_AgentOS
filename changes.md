@@ -69,8 +69,12 @@ This document outlines the recent architectural, semantic, and performance optim
 - `frontend/src/components/PublicNavbar.tsx`
 - `frontend/src/app/dashboard/layout.tsx`
 - `frontend/src/app/globals.css`
+- `frontend/src/components/DiagramScaler.tsx` [NEW]
 
 **Changes Done:**
+- **Dynamic Diagram Scaling:** Implemented a new React `DiagramScaler` client component that uses JavaScript to calculate the exact pixel width of the device screen and scale the desktop diagram seamlessly to edge-to-edge perfection, replacing the rigid CSS media query scaling.
+- **Removed Hero Animations:** Disabled the `.animate-fade-in-up` opening splash animations across the hero text and diagram to improve perceived load times. Also removed the `glass-card` hover transform effects and `.animate-float` idle animations from the workflow nodes for a strictly static presentation.
+- **Diagram Header Polish:** Adjusted the workflow diagram window header from a dark translucent black `rgba(0,0,0,0.2)` to a light grey `rgba(0,0,0,0.05)` to perfectly match the requested macOS-style window visual mockup.
 - **Header Alignment & Overlap:** Resolved Flexbox layout shrinking conflicts in the dashboard Topbar, preventing the title from overlapping with the avatar/notification icons. Added dynamic mobile heights (`65px`) to the `PublicNavbar` to perfectly align the mobile dropdown menu with the header and eliminate awkward gaps.
 - **Scroll Trap Prevention:** Added strict `document.body.style.overflow = "hidden"` locks to the mobile menu. This ensures the background page cannot trigger the auto-hide header logic while the user is actively navigating the menu overlay.
 - **Scroll Hook Performance:** Refactored the navbar scroll listener to track direction using `React.useRef` instead of `useState` or local closures, ensuring the scroll-direction logic persists cleanly across renders without unnecessarily re-rendering the component on every scroll tick.
