@@ -2,30 +2,39 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import React from "react";
 import { usePathname } from "next/navigation";
 
 export default function PublicNavbar() {
   const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const lastScrollY = React.useRef(0);
 
   useEffect(() => {
-    let currentLastScrollY = 0;
-    
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > currentLastScrollY && currentScrollY > 100) {
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
         setShowNavbar(false);
       } else {
         setShowNavbar(true);
       }
-      currentLastScrollY = currentScrollY;
+      lastScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isMobileMenuOpen]);
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -109,7 +118,7 @@ export default function PublicNavbar() {
 
       {/* Mobile Menu Dropdown */}
       <div 
-        className={`lg:hidden fixed inset-0 top-[73px] z-[90] glass-card transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-4'}`}
+        className={`lg:hidden fixed inset-0 max-md:top-[65px] md:top-[73px] z-[90] glass-card transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-4'}`}
         style={{ 
           position: "fixed",
           background: "var(--bg-card)",
@@ -117,7 +126,7 @@ export default function PublicNavbar() {
           border: "none",
           borderTop: "1px solid var(--border-primary)",
           borderRadius: "0 0 16px 16px",
-          height: "calc(100vh - 73px)",
+          height: "calc(100vh - 65px)", // Fallback
           overflowY: "auto",
           padding: "24px"
         }}

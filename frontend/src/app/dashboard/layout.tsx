@@ -235,18 +235,18 @@ function DashboardInner({ children }: { children: ReactNode }) {
       <div className={`main-content ${collapsed ? "sidebar-collapsed" : ""}`} style={{ flex: 1 }}>
         {/* Topbar */}
         <header className="topbar">
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <button className="md:hidden btn btn-ghost btn-sm" style={{ padding: 4 }} onClick={() => setMobileOpen(true)}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, flex: 1, minWidth: 0 }}>
+            <button className="md:hidden btn btn-ghost btn-sm" style={{ padding: 4, flexShrink: 0 }} onClick={() => setMobileOpen(true)}>
               <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
-            <h1 style={{ fontSize: 16, fontWeight: 600, color: "var(--text-primary)" }}>
+            <h1 className="truncate" style={{ fontSize: 16, fontWeight: 600, color: "var(--text-primary)" }}>
               {NAV_ITEMS.find((i) => pathname.startsWith(i.href))?.label || "AgentOS"}
             </h1>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
             {/* Notification bell */}
             <div style={{ position: "relative" }} ref={panelRef}>
               <button
@@ -353,19 +353,19 @@ function DashboardInner({ children }: { children: ReactNode }) {
             </div>
 
             {/* User menu */}
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
               <div style={{
-                width: 32, height: 32, borderRadius: "50%",
+                width: 32, height: 32, borderRadius: "50%", flexShrink: 0,
                 background: "var(--accent-subtle)", color: "var(--accent)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 14, fontWeight: 600,
               }}>
                 {user?.name?.charAt(0)?.toUpperCase() || "U"}
               </div>
-              <span style={{ fontSize: 13, fontWeight: 500, color: "var(--text-secondary)" }}>
+              <span className="hide-on-mobile" style={{ fontSize: 13, fontWeight: 500, color: "var(--text-secondary)", whiteSpace: "nowrap" }}>
                 {user?.name || "User"}
               </span>
-              <button className="btn btn-ghost btn-sm" onClick={logout} title="Sign out">
+              <button className="btn btn-ghost btn-sm" style={{ padding: 6, flexShrink: 0 }} onClick={logout} title="Sign out">
                 <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
                   <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" />
                 </svg>

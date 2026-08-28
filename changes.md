@@ -62,3 +62,19 @@ This document outlines the recent architectural, semantic, and performance optim
 
 **Changes Done:**
 - **Prevent Forced Reflow:** Resolved a critical Lighthouse performance warning caused by synchronous DOM reads. The `TiltCard` was previously querying `getBoundingClientRect()` on every single mouse movement frame while simultaneously updating CSS state, causing continuous forced reflows. We refactored the component to cache the DOM read once on `onMouseEnter`, making the 3D tilt effect buttery smooth and eliminating browser layout thrashing entirely.
+
+## 8. Mobile Responsiveness & Layout Refinements
+**Files Modified:**
+- `frontend/src/app/page.tsx`
+- `frontend/src/components/PublicNavbar.tsx`
+- `frontend/src/app/dashboard/layout.tsx`
+- `frontend/src/app/globals.css`
+
+**Changes Done:**
+- **Hero Diagram Mobile Reflow:** Replaced the rigid `transform: scale()` desktop diagram with a completely responsive, native Flexbox stacked column layout on mobile screens, vastly improving readability and tap target accessibility.
+- **Header Alignment & Overlap:** Resolved Flexbox layout shrinking conflicts in the dashboard Topbar, preventing the title from overlapping with the avatar/notification icons. Added dynamic mobile heights (`65px`) to the `PublicNavbar` to perfectly align the mobile dropdown menu with the header and eliminate awkward gaps.
+- **Scroll Trap Prevention:** Added strict `document.body.style.overflow = "hidden"` locks to the mobile menu. This ensures the background page cannot trigger the auto-hide header logic while the user is actively navigating the menu overlay.
+- **Scroll Hook Performance:** Refactored the navbar scroll listener to track direction using `React.useRef` instead of `useState` or local closures, ensuring the scroll-direction logic persists cleanly across renders without unnecessarily re-rendering the component on every scroll tick.
+- **Glassmorphism Fallbacks:** Added solid fallback background colors for the Sidebar and Topbar when heavy `backdrop-filter` styles are stripped by the `.reduce-data` optimizations, preventing text from bleeding through transparent layers on low-end devices.
+- **Cleanups & Minor Fixes:** Removed orphaned CSS classes (e.g. `.navbar-public-links`), corrected the marquee loop iteration math (`length: 2` instead of 3) for a seamless continuous scroll, and secured external footer links with `target="_blank"` and actual endpoints.
+- **Route Housekeeping:** Deleted the duplicate and orphaned `app/(dashboard)` route group, enforcing a single source of truth in the `app/dashboard` directory.
